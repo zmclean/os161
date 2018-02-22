@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ~/os161
+./configure --ostree=$HOME/os161/root --toolprefix=sos-
+cd kern/conf
+./config ASST1

@@ -326,6 +326,7 @@ file      proc/proc.c
 file      thread/spl.c
 file      thread/spinlock.c
 file      thread/synch.c
+#file 		 thread/synchlock.c
 file      thread/thread.c
 file      thread/threadlist.c
 
@@ -385,7 +386,7 @@ file      syscall/file_syscalls.c
 
 file      startup/main.c
 file      startup/menu.c
-
+file		 startup/hello.c
 ########################################
 #                                      #
 #             Filesystems              #
@@ -434,10 +435,12 @@ optfile   synchprobs  synchprobs/catmouse_synch.c
 file		test/arraytest.c
 file		test/bitmaptest.c
 file		test/threadtest.c
+file		test/threadfun.c
 file		test/tt3.c
 file		test/synchtest.c
 file		test/malloctest.c
 file		test/fstest.c
+file		test/cmdreader.c
 optfile net	test/nettest.c
 # UW Mod
 file    test/uw-tests.c

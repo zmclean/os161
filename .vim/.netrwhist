@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/mclzac19/os161/kern/synchprobs'
+let g:netrw_dirhist_2='/home/mclzac19/os161/kern/thread'
+let g:netrw_dirhist_3='/home/mclzac19/os161/kern'
+let g:netrw_dirhist_4='/home/mclzac19/os161/kern/test'
+let g:netrw_dirhist_5='/home/mclzac19/os161/kern/thread'
+let g:netrw_dirhist_6='/home/mclzac19/os161/kern/test'

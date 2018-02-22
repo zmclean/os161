@@ -155,7 +155,7 @@ common_prog(int nargs, char **args)
 #ifdef UW
 	/* wait until the process we have just launched - and any others that it 
 	   may fork - is finished before proceeding */
-	P(no_proc_sem);
+	 P(no_proc_sem); 
 #endif // UW
 
 	return 0;
@@ -459,6 +459,11 @@ static const char *testmenu[] = {
 	"[tt1] Thread test 1                 ",
 	"[tt2] Thread test 2                 ",
 	"[tt3] Thread test 3                 ",
+	"[clp] My Command Line Print         ",
+	"[fdt] Fun Digit Test (count)",
+	"[ust] Unsafe Thread Test (cnt, inc)",
+	"[stt] Safe Thread Test (cnt, inc)",
+	"[slt] Spinlock Thread Test (cnt, inc)",
 #if OPT_NET
 	"[net] Network test                  ",
 #endif
@@ -558,19 +563,24 @@ static struct {
 #endif
 
 	/* stats */
-	{ "kh",         cmd_kheapstats },
+	{ "kh",  cmd_kheapstats },
 
 	/* base system tests */
-	{ "at",		arraytest },
-	{ "bt",		bitmaptest },
+	{ "at",	arraytest },
+	{ "bt",	bitmaptest },
 	{ "km1",	malloctest },
 	{ "km2",	mallocstress },
+	{ "clp", printLine },	
 #if OPT_NET
 	{ "net",	nettest },
 #endif
 	{ "tt1",	threadtest },
 	{ "tt2",	threadtest2 },
 	{ "tt3",	threadtest3 },
+	{ "fdt", digitThreadTest },
+	{ "ust", unsafethreadcounter },
+	{ "stt", lockthreadcounter },
+	{ "slt", spinlockthreadcounter},
 	{ "sy1",	semtest },
 
 	/* synchronization assignment tests */

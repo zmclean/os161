@@ -7,19 +7,54 @@
 
 # hlsearch on (H) or off (h):
 ~h
+# Last Search Pattern:
+~MSle0~/cmdtable
+
+# Last Substitute String:
+$
+
 # Command Line History (newest to oldest):
-:q!
 :q
+:wq
+:w
+:q!
+:x!q
+:1q
+:W
+:w!q
+:wq!
+:qw
+:qw!
+:x!
 :dw!
 :dw
 :d$
 :d$ 
 :q1
-:qw
-:wq!
 :w!
+:1
 
 # Search String History (newest to oldest):
+?/cmdtable
+? \<31\>
+?/cpus=
+?/cpu
+?/lock_acquire
+?/safethread
+?/printDigit
+?/unsafethreadcounter
+?/printDigits
+?/init_items
+?/testlock
+?/locked
+?/lk_cha
+?/wchan_creat
+?/t_in_interrupt
+?/in_int:q
+?/uw
+?/locktest
+?/sy2
+?/P(
 
 # Expression History (newest to oldest):
 
@@ -28,120 +63,937 @@
 # Input Line History (newest to oldest):
 
 # Registers:
+"0	CHAR	0
+	int digitThreadTest(int, char **);
+	
+"1	LINE	0
+	 
+"2	LINE	0
+	 
+"3	CHAR	0
+	
+	
+"4	CHAR	0
+	 * are met:
+	 * 1. Redistributions of source code must retain the above copyright
+	 *    notice, this list of conditions and the following disclaimer.
+	 * 2. Redistributions in binary form must reproduce the above copyright
+	 *    notice, this list of conditions and the following disclaimer in the
+	 *    documentation and/or other materials provided with the distribution.
+	 * 3. Neither the name of the University nor the names of its contributors
+	 *    may be used to endorse or promote products derived from this software
+	 *    without specific prior written permission.
+	 *
+	 * THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
+	 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+	 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+	 * ARE DISCLAIMED.  IN NO EVENT SHALL THE UNIVERSITY OR CONTRIBUTORS BE LIABLE
+	 * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+	 * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+	 * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+	 * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+	 * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+	 * OUT OF THE USE OF THIS SOFT
+	#
+"5	LINE	0
+	 
+"6	LINE	0
+	 
+"7	CHAR	0
+	
+	
+"8	CHAR	0
+	 * are met:
+	 * 1. Redistributions of source code must retain the above copyright
+	 *    notice, this list of conditions and the following disclaimer.
+	 * 2. Redistributions in binary form must reproduce the above copyright
+	 *    notice, this list of conditions and the following disclaimer in the
+	 *    documentation and/or other materials provided with the distribution.
+	 * 3. Neither the name of the University nor the names of its contributors
+	 *    may be used to endorse or promote products derived from this software
+	 *    without specific prior written permission.
+	 *
+	 * THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
+	 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+	 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+	 * ARE DISCLAIMED.  IN NO EVENT SHALL THE UNIVERSITY OR CONTRIBUTORS BE LIABLE
+	 * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+	 * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+	 * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+	 * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+	 * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+	 * OUT OF THE USE OF THIS SOFT
+	#
+"9	CHAR	0
+	 * are met:
+	 * 1. Redistributions of source code must retain the above copyright
+	 *    notice, this list of conditions and the following disclaimer.
+	 * 2. Redistributions in binary form must reproduce the above copyright
+	 *    notice, this list of conditions and the following disclaimer in the
+	 *    documentation and/or other materials provided with the distribution.
+	 * 3. Neither the name of the University nor the names of its contributors
+	 *    may be used to endorse or promote products derived from this software
+	 *    without specific prior written permission.
+	 *
+	 * THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
+	 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+	 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+	 * ARE DISCLAIMED.  IN NO EVENT SHALL THE UNIVERSITY OR CONTRIBUTORS BE LIABLE
+	 * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+	 * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+	 * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+	 * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+	 * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+	 * OUT OF THE USE OF THIS SOFT
+	#
 ""-	CHAR	0
-	 end of this line twice.
+	p
 
 # File marks:
-'0  255  0  /tmp/tutord3BIOq
-'1  222  47  /tmp/tutorz1DUHJ
-'2  4  0  ~/tutor
-'3  161  0  /tmp/tutorLTin0q
-'4  1  0  ~/tutor
-'5  159  0  /tmp/tutorZOzstO
-'6  170  25  /tmp/tutoroDlLjS
-'7  76  49  /tmp/tutorLjhgAh
-'8  58  0  /tmp/tutor0LbrNk
+'0  1  0  ~/reconfig/1
+'1  1  0  ~/reconfig/make1
+'2  248  0  ~/os161/kern/thread/synch.c
+'3  157  0  ~/os161/kern/test/threadfun.c
+'4  58  0  ~/os161/kern/test/threadfun.c
+'5  108  0  ~/os161/kern/include/synch.h
+'6  1  0  ~/os161/kern/include/test.h
+'7  207  14  ~/os161/kern/test/threadfun.c
+'8  302  0  ~/os161/kern/test/threadfun.c
+'9  117  0  ~/os161/kern/test/threadfun.c
 
 # Jumplist (newest first):
--'  255  0  /tmp/tutord3BIOq
--'  222  46  /tmp/tutord3BIOq
--'  203  0  /tmp/tutord3BIOq
--'  1  0  /tmp/tutord3BIOq
--'  222  47  /tmp/tutorz1DUHJ
--'  1  0  /tmp/tutorz1DUHJ
--'  4  0  ~/tutor
--'  1  0  ~/tutor
--'  161  0  /tmp/tutorLTin0q
--'  1  0  /tmp/tutorLTin0q
--'  159  0  /tmp/tutorZOzstO
--'  1  0  /tmp/tutorZOzstO
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  159  0  /tmp/tutorZOzstO
--'  1  0  /tmp/tutorZOzstO
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  161  0  /tmp/tutorLTin0q
--'  1  0  /tmp/tutorLTin0q
--'  159  0  /tmp/tutorZOzstO
--'  1  0  /tmp/tutorZOzstO
--'  3  6  ~/tutor
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  159  0  /tmp/tutorZOzstO
--'  1  0  /tmp/tutorZOzstO
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  255  0  /tmp/tutord3BIOq
--'  222  46  /tmp/tutord3BIOq
--'  203  0  /tmp/tutord3BIOq
--'  1  0  /tmp/tutord3BIOq
--'  222  47  /tmp/tutorz1DUHJ
--'  1  0  /tmp/tutorz1DUHJ
--'  4  0  ~/tutor
--'  1  0  ~/tutor
--'  161  0  /tmp/tutorLTin0q
--'  1  0  /tmp/tutorLTin0q
--'  159  0  /tmp/tutorZOzstO
--'  1  0  /tmp/tutorZOzstO
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
--'  76  49  /tmp/tutorLjhgAh
--'  1  0  /tmp/tutorLjhgAh
--'  58  0  /tmp/tutor0LbrNk
--'  1  0  /tmp/tutor0LbrNk
--'  159  0  /tmp/tutorZOzstO
--'  1  0  /tmp/tutorZOzstO
--'  170  25  /tmp/tutoroDlLjS
--'  1  0  /tmp/tutoroDlLjS
+-'  1  0  ~/reconfig/1
+-'  1  0  ~/reconfig/make1
+-'  248  0  ~/os161/kern/thread/synch.c
+-'  1  0  ~/os161/kern/thread/synch.c
+-'  157  0  ~/os161/kern/test/threadfun.c
+-'  1  0  ~/os161/kern/test/threadfun.c
+-'  58  0  ~/os161/kern/test/threadfun.c
+-'  108  0  ~/os161/kern/include/synch.h
+-'  1  0  ~/os161/kern/include/synch.h
+-'  1  0  ~/os161/kern/include/test.h
+-'  207  14  ~/os161/kern/test/threadfun.c
+-'  302  0  ~/os161/kern/test/threadfun.c
+-'  117  0  ~/os161/kern/test/threadfun.c
+-'  65  0  ~/os161/kern/include/test.h
+-'  19  9  ~/os161/kern/test/threadfun.c
+-'  52  17  ~/os161/kern/test/synchtest.c
+-'  1  0  ~/os161/kern/test/synchtest.c
+-'  2  0  ~/reconfig/make1
+-'  254  0  ~/os161/kern/thread/synch.c
+-'  183  8  ~/os161/kern/thread/synch.c
+-'  455  0  ~/os161/kern/conf/conf.kern
+-'  1  0  ~/os161/kern/conf/conf.kern
+-'  1039  0  ~/os161/kern/conf/config
+-'  1  0  ~/os161/kern/conf/config
+-'  1  0  ~/os161/kern/conf/ASST1
+-'  1  0  ~/os161/kern/ASST1
+-'  1  0  ~/os161/kern/startup/main.c
+-'  1  0  ~/os161/kern/test/cmdreader.c
+-'  102  0  ~/os161/kern/include/test.h
+-'  5  0  ~/os161/kern/test/cmdreader.c
+-'  1  0  ~/os161/kern/startup/hello.c
+-'  1  0  ~/os161/kern/startup/stpdprgrm.c
+-'  652  2  ~/os161/kern/startup/menu.c
+-'  636  11  ~/os161/kern/startup/menu.c
+-'  635  44  ~/os161/kern/startup/menu.c
+-'  538  7  ~/os161/kern/startup/menu.c
+-'  1  0  ~/os161/kern/startup/menu.c
+-'  107  1  ~/os161/kern/include/synch.h
+-'  216  0  ~/os161/kern/thread/synch.c
+-'  147  0  ~/os161/kern/include/synch.h
+-'  97  0  ~/os161/kern/test/threadfun.c
+-'  236  32  ~/os161/kern/test/threadfun.c
+-'  133  0  ~/os161/root/sys161.conf
+-'  134  0  ~/os161/root/sys161.conf
+-'  23  36  ~/os161/root/sys161.conf
+-'  22  52  ~/os161/root/sys161.conf
+-'  1  0  ~/os161/root/sys161.conf
+-'  217  0  ~/os161/kern/thread/synch.c
+-'  136  5  ~/os161/kern/thread/synch.c
+-'  124  6  ~/os161/kern/thread/synch.c
+-'  103  0  ~/os161/kern/thread/synch.c
+-'  88  0  ~/test/os161/kern/startup/menu.c
+-'  140  1  ~/test/os161/kern/startup/menu.c
+-'  1  0  ~/test/os161/kern/startup/menu.c
+-'  235  0  ~/os161/kern/proc/proc.c
+-'  214  1  ~/os161/kern/proc/proc.c
+-'  1  0  ~/os161/kern/proc/proc.c
+-'  204  2  ~/os161/kern/test/threadfun.c
+-'  466  37  ~/os161/kern/startup/menu.c
+-'  1  0  startup/kern/menu.c
+-'  51  27  ~/os161/kern/include/test.h
+-'  67  0  ~/os161/kern/include/test.h
+-'  172  0  ~/os161/kern/include/thread.h
+-'  1  0  ~/os161/kern/include/thread.h
+-'  454  0  ~/os161/kern/conf/conf.kern
+-'  78  0  ~/os161/kern/startup/main.c
+-'  147  0  ~/os161/kern/q
+-'  1  0  ~/os161/kern/q
+-'  177  16  ~/os161/kern/thread/synch.c
+-'  207  28  ~/os161/kern/thread/synch.c
+-'  78  23  ~/os161/kern/test/threadfun.c
+-'  99  5  ~/os161/kern/test/synchtest.c
+-'  309  15  ~/os161/kern/test/synchtest.c
+-'  308  23  ~/os161/kern/test/synchtest.c
+-'  278  19  ~/os161/kern/test/synchtest.c
+-'  275  15  ~/os161/kern/test/synchtest.c
+-'  223  15  ~/os161/kern/test/synchtest.c
+-'  194  15  ~/os161/kern/test/synchtest.c
+-'  180  14  ~/os161/kern/test/synchtest.c
+-'  101  0  ~/os161/kern/test/synchtest.c
+-'  233  0  ~/os161/kern/test/synchtest.c
+-'  332  22  ~/os161/kern/thread/synch.c
+-'  240  6  ~/os161/kern/thread/synch.c
+-'  228  11  ~/os161/kern/thread/synch.c
+-'  211  21  ~/os161/kern/thread/synch.c
+-'  208  25  ~/os161/kern/thread/synch.c
+-'  167  34  ~/os161/kern/thread/synch.c
+-'  64  18  ~/os161/kern/thread/synch.c
+-'  337  2  ~/os161/kern/thread/synch.c
+-'  1  0  ~/os161/kern/include/synch.c
+-'  41  17  ~/os161/kern/thread/synch.c
+-'  239  14  ~/os161/kern/thread/synch.c
+-'  134  3  ~/os161/kern/test/threadfun.c
+-'  131  1  ~/os161/kern/test/threadfun.c
+-'  42  0  ~/os161/kern/test/synchtest.c
+-'  38  0  ~/os161/kern/test/synchtest.c
+-'  10  2  ~/os161/kern/test/uw-tests.c
+-'  1  0  ~/os161/kern/test/uw-tests.c
 
 # History of marks within files (newest to oldest):
+
+> ~/reconfig/1
+	"	1	0
+	^	10	0
+	.	9	6
+	+	13	12
+	+	7	15
+	+	9	6
+
+> ~/reconfig/make1
+	"	1	0
+	^	6	14
+	.	6	13
+	+	2	0
+	+	7	29
+	+	9	4
+	+	1	11
+	+	7	0
+	+	6	13
+
+> ~/os161/kern/thread/synch.c
+	"	248	0
+	^	188	22
+	.	189	0
+	+	165	59
+	+	165	14
+	+	173	22
+	+	197	2
+	+	198	14
+	+	209	3
+	+	205	3
+	+	204	3
+	+	203	3
+	+	201	3
+	+	200	3
+	+	199	3
+	+	198	17
+	+	205	3
+	+	213	16
+	+	214	20
+	+	230	182
+	+	231	9
+	+	242	0
+	+	241	12
+	+	242	56
+	+	242	55
+	+	246	0
+	+	245	12
+	+	248	9
+	+	250	9
+	+	247	20
+	+	41	33
+	+	172	0
+	+	171	15
+	+	175	32
+	+	176	15
+	+	174	13
+	+	175	15
+	+	166	0
+	+	188	22
+	+	191	21
+	+	199	0
+	+	200	46
+	+	202	35
+	+	208	36
+	+	210	25
+	+	212	21
+	+	213	35
+	+	215	9
+	+	229	0
+	+	227	25
+	+	228	33
+	+	230	35
+	+	231	0
+	+	238	14
+	+	238	14
+	+	239	34
+	+	241	14
+	+	243	0
+	+	42	0
+	+	281	0
+	+	278	25
+	+	280	15
+	+	291	35
+	+	308	0
+	+	307	22
+	+	309	9
+	+	310	9
+	+	321	0
+	+	320	33
+	+	322	2
+	+	323	2
+	+	320	16
+	+	334	0
+	+	333	32
+	+	336	2
+	+	335	2
+	+	167	34
+	+	207	25
+	+	210	21
+	+	227	12
+	+	245	15
+	+	239	7
+	+	331	22
+	+	167	8
+	+	239	12
+	+	188	53
+	+	188	40
+	+	189	0
+
+> ~/os161/kern/test/threadfun.c
+	"	157	0
+	^	207	15
+	.	207	15
+	+	52	14
+	+	83	14
+	+	86	9
+	+	87	14
+	+	83	0
+	+	82	0
+	+	85	0
+	+	66	21
+	+	68	0
+	+	114	0
+	+	118	0
+	+	120	0
+	+	132	22
+	+	135	0
+	+	171	0
+	+	230	0
+	+	232	34
+	+	233	0
+	+	237	0
+	+	298	0
+	+	105	1
+	+	30	7
+	+	9	22
+	+	6	20
+	+	9	26
+	+	30	17
+	+	25	12
+	+	19	12
+	+	31	22
+	+	31	22
+	+	31	22
+	+	98	24
+	+	104	14
+	+	9	26
+	+	31	22
+	+	32	0
+	+	31	1
+	+	142	0
+	+	296	48
+	+	209	17
+	+	206	2
+	+	210	2
+	+	45	1
+	+	63	27
+	+	66	9
+	+	65	0
+	+	67	1
+	+	66	1
+	+	80	0
+	+	84	1
+	+	83	1
+	+	82	1
+	+	81	3
+	+	97	0
+	+	101	1
+	+	100	1
+	+	99	1
+	+	98	1
+	+	102	0
+	+	95	0
+	+	99	10
+	+	78	0
+	+	82	10
+	+	64	24
+	+	79	25
+	+	96	25
+	+	63	49
+	+	64	22
+	+	59	39
+	+	64	25
+	+	64	24
+	+	76	1
+	+	78	23
+	+	79	26
+	+	79	28
+	+	133	51
+	+	146	0
+	+	150	0
+	+	154	0
+	+	134	0
+	+	141	37
+	+	164	58
+	+	141	22
+	+	215	2
+	+	216	52
+	+	221	28
+	+	243	84
+	+	264	63
+	+	284	50
+	+	217	142
+	+	219	39
+	+	218	143
+	+	81	2
+	+	82	0
+	+	81	21
+	+	81	48
+	+	82	0
+	+	81	21
+	+	82	0
+	+	207	15
+
+> ~/os161/kern/include/synch.h
+	"	108	0
+	^	121	27
+	.	121	27
+	+	76	60
+	+	96	29
+	+	82	0
+	+	81	25
+	+	49	1
+	+	48	1
+	+	49	3
+	+	48	3
+	+	79	0
+	+	80	16
+	+	81	12
+	+	121	27
+
+> ~/os161/kern/include/test.h
+	"	1	0
+	^	68	33
+	.	68	32
+	+	99	16
+	+	100	2
+	+	57	64
+	+	58	0
+	+	57	32
+	+	57	30
+	+	62	0
+	+	64	0
+	+	57	30
+	+	58	0
+	+	65	38
+	+	67	40
+	+	68	32
+	n	65	6
+
+> ~/os161/kern/test/threadtest.c
+	"	71	0
+	^	52	1
+
+> ~/os161/kern/thread/thread.c
+	"	252	0
+
+> ~/os161/kern/test/synchtest.c
+	"	52	17
+	^	74	16
+	.	74	15
+	+	1	0
+	+	70	16
+	+	68	15
+	+	72	14
+	+	74	15
+
+> ~/os161/kern/startup/menu.c
+	"	587	4
+	^	466	38
+	.	466	38
+	+	158	18
+	+	139	12
+	+	89	0
+	+	574	20
+	+	554	17
+	+	462	39
+	+	471	40
+	+	574	21
+	+	462	5
+	+	573	19
+	+	502	32
+	+	463	29
+	+	574	0
+	+	580	25
+	+	466	33
+	+	463	34
+	+	566	10
+	+	569	9
+	+	570	9
+	+	583	11
+	+	581	19
+	+	582	27
+	+	583	30
+	+	463	30
+	+	464	39
+	+	465	42
+	+	464	43
+	+	466	46
+	+	464	36
+	+	465	27
+	+	466	38
+	d	139	12
+
+> ~/os161/kern/test/cmdreader.c
+	"	1	0
+	^	3	17
+	.	4	0
+	+	1	0
+	+	14	0
+	+	14	0
+	+	1	1
+	+	12	0
+	+	10	0
+	+	9	24
+	+	11	23
+	+	5	7
+	+	12	1
+	+	5	12
+	+	3	35
+	+	3	67
+	+	5	7
+	+	4	0
+	+	5	3
+	+	12	0
+	+	5	12
+	+	3	18
+	+	5	30
+	+	3	17
+	+	9	2
+	+	11	1
+	+	4	0
+
+> ~/boot1
+	"	1	0
+	^	2	0
+	.	1	11
+	+	4	18
+	+	1	11
+
+> ~/os161/kern/include/lib.h
+	"	91	0
+
+> ~/reconfig/build1
+	"	1	0
+	^	5	13
+	.	5	12
+	+	5	12
+
+> ~/os161/kern/conf/conf.kern
+	"	455	0
+	^	329	1
+	.	329	0
+	+	286	69
+	+	388	21
+	+	286	49
+	+	287	0
+	+	323	0
+	+	443	21
+	+	438	21
+	+	329	0
+
+> ~/os161/kern/conf/config
+	"	1039	0
+
+> ~/os161/kern/conf/ASST1
+	"	1	0
+
+> ~/os161/kern/ASST1
+	"	1	0
+
+> ~/os161/kern/startup/main.c
+	"	1	0
+	^	111	9
+	.	111	8
+	+	2	14
+	+	3	1
+	+	73	30
+	+	111	8
+
+> ~/os161/kern/startup/hello.c
+	"	1	0
+	^	6	26
+	.	6	25
+	+	7	0
+	+	6	25
+
+> ~/os161/kern/startup/stpdprgrm.c
+	"	1	0
+	^	41	1
+	.	40	2
+	+	41	0
+	+	1	0
+	+	7	2
+	+	14	2
+	+	21	2
+	+	28	2
+	+	36	2
+	+	38	2
+	+	40	2
+
+> ~/os161/root/sys161.conf
+	"	133	0
+	^	133	0
+	.	133	0
+	+	133	0
+	+	134	0
+	+	133	0
+	+	134	0
+	+	133	0
+	+	134	0
+	+	133	0
+	+	134	0
+	+	133	0
+	+	135	0
+	+	133	0
+
+> ~/os161/kern/thread/threadfun.c
+	"	1	0
+
+> ~/test/os161/kern/startup/menu.c
+	"	88	0
+
+> ~/os161/kern/proc/proc.c
+	"	235	0
+
+> ~/os161/kern/dev/lamebus/lamebus.c
+	"	236	36
+
+> ~/os161/kern/thread/spinlock.c
+	"	62	0
+
+> ~/test/os161/kern/lib/kprintf.c
+	"	86	2
+	m	108	21
+
+> ~/test/os161/kern/dev/lamebus/lamebus.c
+	"	93	25
+
+> ~/os161/kern/include/spinlock.h
+	"	88	0
+
+> ~/os161/kern/arch/mips/include/spinlock.h
+	"	60	7
+
+> ~/test/os161/kern/test/synchtest.c
+	"	59	0
+
+> startup/kern/menu.c
+	"	1	0
+
+> thread/synch.c
+	"	1	0
+
+> ~/os161/kern/include/thread.h
+	"	172	0
+
+> ~/os161/kern/q
+	"	147	0
+
+> ~/os161/kern/include/synch.c
+	"	1	0
+
+> ~/os161/kern/thread/threadlocks.c
+	"	469	0
+
+> ~/os161/kern/test/uw-tests.c
+	"	10	2
+	^	11	2
+	.	11	1
+	+	11	22
+	+	10	1
+	+	11	19
+	+	10	0
+	+	11	1
+
+> ~/os161/kern/test/uw-test.c
+	"	1	0
+
+> ~/os161/kern/test/uw-wtest.c
+	"	1	0
+
+> ~/os161/kern/threadlocks.c
+	"	1	0
+
+> ~/os161/kern/include/synchlock.h
+	"	129	0
+	^	78	26
+	.	78	25
+	+	78	25
+
+> ~/os161/kern/thread/synchlock.c
+	"	250	0
+	^	250	1
+	.	250	1
+	+	49	19
+	+	48	1
+	+	50	15
+	+	77	11
+	+	78	0
+	+	196	10
+	+	197	10
+	+	199	10
+	+	212	14
+	+	213	10
+	+	214	10
+	+	226	14
+	+	267	1
+	+	197	4
+	+	199	33
+	+	197	5
+	+	221	0
+	+	220	15
+	+	202	5
+	+	219	5
+	+	250	1
+
+> ~/os161/kern/synchlock.c
+	"	1	0
+
+> ~/os161/kern/arch/mips/locore/trap.c
+	"	299	1
+
+> ~/os161/kern/include/spl.h
+	"	22	0
+
+> ~/os161/kern/synchtest.c
+	"	1	0
+
+> ~/os161/kern/uw-tests.c
+	"	1	0
+
+> ~/os161/kern/thread/synchlocks.c
+	"	113	0
+	^	239	5
+	.	240	0
+	+	8	2
+	+	1	3
+	+	49	22
+	+	172	8
+	+	174	23
+	+	197	0
+	+	194	18
+	+	201	27
+	+	201	21
+	+	199	23
+	+	201	27
+	+	205	17
+	+	201	3
+	+	205	16
+	+	206	0
+	+	201	0
+	+	203	0
+	+	199	23
+	+	202	4
+	+	200	0
+	+	202	3
+	+	213	32
+	+	216	16
+	+	212	15
+	+	203	8
+	+	204	11
+	+	203	11
+	+	199	18
+	+	219	16
+	+	220	0
+	+	227	22
+	+	229	14
+	+	235	0
+	+	234	5
+	+	239	0
+	+	238	5
+	+	240	0
+
+> ~/os161/kern/synchlocks.c
+	"	1	0
+
+> ~/os161/kern/thread/spl.c
+	"	89	0
+
+> ~/conf.kern
+	"	1	0
+
+> ~/os161/kern/include/synchlocks.h
+	"	1	0
+
+> ~/os161/kern/include/wchan.h
+	"	1	1
+
+> ~/os161/common/libc/printf/__printf.c
+	"	46	15
+
+> ~/reconfig/configure1
+	"	1	0
+	^	6	14
+	.	6	13
+	+	4	55
+	+	7	0
+	+	6	13
+
+> ~/reconfig/compile1
+	"	1	0
+	^	6	13
+	.	6	12
+	+	6	12
+
+> ~/reconfig/installpmake
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> ~/os161/kern/thread/threadlist.c
+	"	1	0
+
+> ~/test/os161/kern/thread/threadlist.c
+	"	96	25
+
+> ~/os161/kern/conf.kern
+	"	1	0
+
+> ~/os161/kern/menu.c
+	"	1	0
+
+> ~/os161/kern/dev/generic/console.c
+	"	90	0
+
+> ~/os161/build/install/include/stdio.h
+	"	67	0
+
+> ~/test/os161/kern/dev/lamebus/emu.c
+	"	755	1
+
+> ~/test/os161/kern/arch/mips/include/vm.h
+	"	84	0
+
+> ~/os161/kern/dev/lamebus/emu.c
+	"	839	1
+
+> ~/os161/kern/arch/mips/include/vm.h
+	"	84	0
+
+> ~/os161/kern/tt3.c
+	"	1	0
+
+> ~/os161/kern/threadtest.c
+	"	1	0
+
+> ~/os161/kern/threadfun.c
+	"	1	0
+
+> ~/os161/kern/main.c
+	"	1	0
+
+> ~/os161/kern/include/cmdreader.h
+	"	1	3
+	^	1	4
+	.	1	3
+	+	1	3
+
+> ~/os161/kern/include/array.h
+	"	60	0
+
+> ~/os161/kern/synchprobs/whalemating.c
+	"	58	0
+
+> ~/os161/kern/lib/kprintf.c
+	"	113	0
+
+> ~/os161/kern/test/arraytest.c
+	"	74	0
+
+> ~/os161/kern/lib/stpdprog.c
+	"	1	0
+	^	1	11
+	.	29	8
+	+	6	0
+	+	5	25
+	+	11	0
+	+	10	9
+	+	16	0
+	+	15	9
+	+	21	0
+	+	20	29
+	+	30	0
+	+	29	8
+
+> ~/test/os161/kern/test/threadtest.c
+	"	1	0
+
+> ~/test/os161/kern/thread/synch.c
+	"	79	0
+
+> ~/os161/build/install/include/kern/endian.h
+	"	50	2
+
+> ~/os161/kern/test/malloctest.c
+	"	123	2
+
+> ~/os161/kern/test/fstest.c
+	"	444	2
+
+> ~/os161/kern/synchprobs/catmouse.c
+	"	661	4
+
+> ~/test/os161/kern/test/tt3.c
+	"	149	2
+
+> ~/test/os161/kern/synchprobs/catmouse.c
+	"	668	0
+
+> ~/os161/kern/hello.o
+	"	1	0
+
+> ~/os161/kern/test.h
+	"	1	0
+
+> ~/os161/root/include/kern/errmsg.h
+	"	11	1
+
+> ~/os161/kern/compile/ASST0/main.o
+	"	1	0
+
+> ~/os161/.gitignore
+	"	1	0
+	^	10	7
+	.	10	6
+	+	1	8
+	+	3	0
+	+	2	0
+	+	10	6
 
 > /tmp/tutord3BIOq
 	"	255	0

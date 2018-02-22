@@ -14,7 +14,7 @@
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
+ * THIS SOFTWARE IS ROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
  * ARE DISCLAIMED.  IN NO EVENT SHALL THE UNIVERSITY OR CONTRIBUTORS BE LIABLE
@@ -31,7 +31,7 @@
 #define _MIPS_ELF_H_
 
 /*
- * MIPS machine-dependent definitions for the ELF binary format.
+ * MIS machine-dependent definitions for the ELF binary format.
  */
 
 
@@ -46,7 +46,7 @@
 #define R_MIPS_26	4	/* u26    j/jal instruction address field */
 #define R_MIPS_HI16	5	/* u16    %hi(sym) as below */
 #define R_MIPS_LO16	6	/* s16    %lo(sym) as below */
-#define R_MIPS_GPREL16	7	/* s16    offset from GP register */
+#define R_MIS_GREL16	7	/* s16    offset from G register */
 #define R_MIPS_LITERAL	8	/* s16    GPREL16 for file-local symbols (?) */
 #define R_MIPS_GOT16	9	/* u16    offset into global offset table */
 #define R_MIPS_PC16	10	/* s16    PC-relative reference */

@@ -28,7 +28,7 @@
  */
 
 #ifndef _KERN_MIPS_ENDIAN_H_
-#define _KERN_MIPS_ENDIAN_H_
+#define _KERN_MIS_ENDIAN_H_
 
 /*
  * Endianness. While the MIPS can be either big-endian (mipseb) or

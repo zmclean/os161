@@ -8,6 +8,7 @@
 
 #include <types.h>
 #include <synch.h>
+//#include <synchlock.h>
 #include <thread.h>
 #include <test.h>
 #include <uw-vmstats.h>

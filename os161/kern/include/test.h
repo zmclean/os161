@@ -60,6 +60,12 @@ int semtest(int, char **);
 int locktest(int, char **);
 int cvtest(int, char **);
 
+/*My thread tests*/
+int digitThreadTest(int, char **);
+int unsafethreadcounter(int, char **);
+int lockthreadcounter(int, char **);
+int spinlockthreadcounter(int, char **);
+int * getarguments(int, char **);
 #ifdef UW
 /* Another thread and synchronization test */
 int uwlocktest1(int, char **);
@@ -89,5 +95,8 @@ void menu(char *argstr);
 /* The main function, called from start.S. */
 void kmain(char *bootstring);
 
+/* My custom functions, called in main.c. */
+void hello(void);
+int printLine(int, char**); //Prints command line. Called in Menu.
 
 #endif /* _TEST_H_ */

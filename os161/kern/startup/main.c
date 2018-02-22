@@ -1,4 +1,6 @@
 /*
+ * Zack McLean
+ *
  * Copyright (c) 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2009
  *	The President and Fellows of Harvard College.
  *
@@ -68,7 +70,7 @@ extern const char buildconfig[];
  * Copyright message for the OS/161 base code.
  */
 static const char harvard_copyright[] =
-    "Copyright (c) 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2009\n"
+    "Zackary McLean\nOS Lab 3\nCopyright (c) 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2009\n"
     "   President and Fellows of Harvard College.  All rights reserved.\n";
 
 
@@ -104,7 +106,9 @@ boot(void)
 	kprintf("Put-your-group-name-here's system version %s (%s #%d)\n", 
 		GROUP_VERSION, buildconfig, buildversion);
 	kprintf("\n");
-
+	
+	/*My hello function call. */
+	hello();
 	/* Early initialization. */
 	ram_bootstrap();
 	proc_bootstrap();
