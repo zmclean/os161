@@ -210,6 +210,52 @@ proc_bootstrap(void)
 #endif // UW 
 }
 
+struct proc *
+proc_create_fork(const char *name)
+{
+	struct proc *proc;
+	char *console_path;
+
+	proc = proc_create(name);
+	if (proc == NULL) {
+		return NULL;
+	}
+#ifdef UW
+	console_path = kstrdup("con:");
+	if(console_path == NULL) {
+		panic("Unable to copy console path name during process creation\n");
+	}
+	if(vfs_open(console_path,O_WRONLY,0,&(proc->console))) {
+		panic("Unable to open the console during process creation\n");
+	}
+	kfree(console_path);
+#endif //UW
+	/* VM fields */
+	proc->p_addrspace = NULL;
+	/* VPS fields */
+
+#ifdef UW
+	if(curproc->p_cwd != NULL) {
+		VOP_INCREF(curproc->p_cwd);
+		proc->p_cwd = curproc->p_cwd;
+	}
+#else
+	spinlock_acquire(&curproc->p_lock);
+	if(curproc->p_cwd != NULL) {
+		VOP_INCREF(curproc->p_cwd);
+		proc->p_cwd = curproc->p_cwd;
+	}
+	spinlock_release(&curproc->p_lock);
+#endif
+
+#ifdef UW
+	P(proc_count_mutex);
+	proc_count++;
+	V(proc_count_mutex);
+#endif
+	return proc;
+}
+
 /*
  * Create a fresh proc for use by runprogram.
  *

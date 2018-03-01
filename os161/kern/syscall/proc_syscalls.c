@@ -9,24 +9,25 @@
 #include <thread.h>
 #include <addrspace.h>
 #include <copyinout.h>
-
+#include <mips/trapframe.h>
+#include <synch.h>
   /* this implementation of sys__exit does not do anything with the exit code */
   /* this needs to be fixed to get exit() and waitpid() working properly */
 
 void sys__exit(int exitcode) {
-
+	//thread_exit(exitcode);
+	
   struct addrspace *as;
   struct proc *p = curproc;
-  /* for now, just include this to keep the compiler from complaining about
-     an unused variable */
+ 
   (void)exitcode;
 
   DEBUG(DB_SYSCALL,"Syscall: _exit(%d)\n",exitcode);
 
   KASSERT(curproc->p_addrspace != NULL);
   as_deactivate();
-  /*
-   * clear p_addrspace before calling as_destroy. Otherwise if
+ 
+   /* clear p_addrspace before calling as_destroy. Otherwise if
    * as_destroy sleeps (which is quite possible) when we
    * come back we'll be calling as_activate on a
    * half-destroyed address space. This tends to be
@@ -36,7 +37,7 @@ void sys__exit(int exitcode) {
   as_destroy(as);
 
   /* detach this thread from its process */
-  /* note: curproc cannot be used after this call */
+ /* note: curproc cannot be used after this call */
   proc_remthread(curthread);
 
   /* if this is the last user process in the system, proc_destroy()
@@ -46,6 +47,7 @@ void sys__exit(int exitcode) {
   thread_exit();
   /* thread_exit() does not return, so we should never get here */
   panic("return from thread_exit in sys_exit\n");
+
 }
 
 
@@ -53,9 +55,8 @@ void sys__exit(int exitcode) {
 int
 sys_getpid(pid_t *retval)
 {
-  /* for now, this is just a stub that always returns a PID of 1 */
-  /* you need to fix this to make it work properly */
-  *retval = 1;
+	//*retval = curthread->t_pid;
+	*retval = 1;
   return(0);
 }
 
@@ -69,8 +70,8 @@ sys_waitpid(pid_t pid,
 {
   int exitstatus;
   int result;
-
-  /* this is just a stub implementation that always reports an
+/*
+  
      exit status of 0, regardless of the actual exit status of
      the specified process.   
      In fact, this will return 0 even if the specified process
@@ -78,11 +79,10 @@ sys_waitpid(pid_t pid,
 
      Fix this!
   */
-
   if (options != 0) {
     return(EINVAL);
   }
-  /* for now, just pretend the exitstatus is 0 */
+ 
   exitstatus = 0;
   result = copyout((void *)&exitstatus,status,sizeof(int));
   if (result) {
@@ -92,3 +92,69 @@ sys_waitpid(pid_t pid,
   return(0);
 }
 
+static struct semaphore *tsem;
+
+void
+uproc_thread (void *temp_tr, unsigned long k);
+
+void
+uproc_thread (void *temp_tr, unsigned long k) 
+{
+	as_activate();
+	struct trapframe tf = *((struct trapframe*)temp_tr);
+	(void)k;
+
+	tf.tf_epc += 4;
+	tf.tf_v0 = 0;
+	tf.tf_a3 = 0;
+	kfree(temp_tr);
+
+	mips_usermode(&tf);
+	KASSERT(curproc->p_addrspace != NULL);
+
+	thread_exit();
+}
+
+int
+sys_fork(struct trapframe *tf, pid_t *retval)
+{
+	struct trapframe *temp_tf;
+	struct proc *proc;
+	struct addrspace *child_vmspace = NULL;
+	int err;
+
+	if (tsem==NULL) {
+		tsem = sem_create("tsem", 0);
+		if (tsem == NULL) {
+			panic("Sem creation failed.\n");
+		}
+	}
+
+	KASSERT(child_vmspace == NULL);
+	as_copy(curproc->p_addrspace, &child_vmspace);
+	if(child_vmspace == NULL) {
+		kprintf("sys_fork: as_copy failed %s\n", strerror(ENOMEM));
+		return ENOMEM;
+	}
+
+	proc = proc_create_fork("forkproc");
+	DEBUG(DB_SYSCALL, "Syscall: sys_fork()\n");
+
+	proc->p_addrspace = child_vmspace;
+
+	temp_tf = kmalloc(sizeof(struct trapframe));
+	if(temp_tf == NULL) {
+		return ENOMEM;
+	}
+
+	*temp_tf = *tf;
+
+	err = thread_fork(curthread->t_name, proc, uproc_thread, temp_tf, *retval);
+
+	if (err) {
+		return err;
+	}
+
+	*retval = proc->pid;
+	return(0);
+}

@@ -52,7 +52,7 @@ struct proc {
 	char *p_name;			/* Name of this process */
 	struct spinlock p_lock;		/* Lock for this structure */
 	struct threadarray p_threads;	/* Threads in this process */
-
+	pid_t pid;
 	/* VM */
 	struct addrspace *p_addrspace;	/* virtual address space */
 
@@ -69,6 +69,13 @@ struct proc {
 #endif
 
 	/* add more material here as needed */
+
+	/* My pid */
+  pid_t p_pid;
+
+  /* parent process. We won't need both of these in the end. */
+  pid_t pp_pid;
+  struct proc *p_pproc;
 };
 
 /* This is the process structure for the kernel and for kernel-only threads. */
@@ -100,5 +107,5 @@ struct addrspace *curproc_getas(void);
 /* Change the address space of the current process, and return the old one. */
 struct addrspace *curproc_setas(struct addrspace *);
 
-
+struct proc *proc_create_fork(const char *name);
 #endif /* _PROC_H_ */

@@ -8,19 +8,21 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/cmdtable
+~MSle0~/err
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:q
 :wq
 :w
+:q
+:W
 :q!
+:Q
+:ew
 :x!q
 :1q
-:W
 :w!q
 :wq!
 :qw
@@ -32,9 +34,15 @@ $
 :d$ 
 :q1
 :w!
-:1
 
 # Search String History (newest to oldest):
+?/err
+?/common_prog
+??fork
+?/DEBUG
+?/p(
+?/proc
+?/thread_for
 ?/cmdtable
 ? \<31\>
 ?/cpus=
@@ -48,13 +56,6 @@ $
 ?/testlock
 ?/locked
 ?/lk_cha
-?/wchan_creat
-?/t_in_interrupt
-?/in_int:q
-?/uw
-?/locktest
-?/sy2
-?/P(
 
 # Expression History (newest to oldest):
 
@@ -64,226 +65,689 @@ $
 
 # Registers:
 "0	CHAR	0
-	int digitThreadTest(int, char **);
 	
-"1	LINE	0
-	 
+	int
+	sys_fork(struct trapframe *tf, pid_t *retval)
+	{
+		struct trapframe *newtf;
+		int result;
+	
+		newtf = kmalloc(sizeof(struct trapframe));
+		if(newtf == NULL) {
+			return ENOMEM;
+		}
+		*newtf = *tf;
+	
+		result = thread_fork(curthread->t_name, child_thread, newtf, 0, retval);
+		
+		if(result) {
+			kfree(newtf);
+			return result;
+		}
+	
+		return(0);
+	}
+""1	LINE	0
+	     this is just a stub implementation that always reports an
 "2	LINE	0
-	 
-"3	CHAR	0
-	
-	
-"4	CHAR	0
-	 * are met:
-	 * 1. Redistributions of source code must retain the above copyright
-	 *    notice, this list of conditions and the following disclaimer.
-	 * 2. Redistributions in binary form must reproduce the above copyright
-	 *    notice, this list of conditions and the following disclaimer in the
-	 *    documentation and/or other materials provided with the distribution.
-	 * 3. Neither the name of the University nor the names of its contributors
-	 *    may be used to endorse or promote products derived from this software
-	 *    without specific prior written permission.
-	 *
-	 * THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
-	 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-	 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-	 * ARE DISCLAIMED.  IN NO EVENT SHALL THE UNIVERSITY OR CONTRIBUTORS BE LIABLE
-	 * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-	 * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-	 * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-	 * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-	 * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-	 * OUT OF THE USE OF THIS SOFT
-	#
+		kfree(dummy);
+"3	LINE	0
+		struct trapframe tf = *dummy;
+"4	LINE	0
+		//enter_forked_process(&tf);
 "5	LINE	0
-	 
+		//struct address *as;
 "6	LINE	0
-	 
-"7	CHAR	0
-	
-	
-"8	CHAR	0
-	 * are met:
-	 * 1. Redistributions of source code must retain the above copyright
-	 *    notice, this list of conditions and the following disclaimer.
-	 * 2. Redistributions in binary form must reproduce the above copyright
-	 *    notice, this list of conditions and the following disclaimer in the
-	 *    documentation and/or other materials provided with the distribution.
-	 * 3. Neither the name of the University nor the names of its contributors
-	 *    may be used to endorse or promote products derived from this software
-	 *    without specific prior written permission.
-	 *
-	 * THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
-	 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-	 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-	 * ARE DISCLAIMED.  IN NO EVENT SHALL THE UNIVERSITY OR CONTRIBUTORS BE LIABLE
-	 * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-	 * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-	 * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-	 * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-	 * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-	 * OUT OF THE USE OF THIS SOFT
-	#
-"9	CHAR	0
-	 * are met:
-	 * 1. Redistributions of source code must retain the above copyright
-	 *    notice, this list of conditions and the following disclaimer.
-	 * 2. Redistributions in binary form must reproduce the above copyright
-	 *    notice, this list of conditions and the following disclaimer in the
-	 *    documentation and/or other materials provided with the distribution.
-	 * 3. Neither the name of the University nor the names of its contributors
-	 *    may be used to endorse or promote products derived from this software
-	 *    without specific prior written permission.
-	 *
-	 * THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY AND CONTRIBUTORS ``AS IS'' AND
-	 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-	 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-	 * ARE DISCLAIMED.  IN NO EVENT SHALL THE UNIVERSITY OR CONTRIBUTORS BE LIABLE
-	 * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-	 * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-	 * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-	 * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-	 * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-	 * OUT OF THE USE OF THIS SOFT
-	#
-""-	CHAR	0
-	p
+		//struct proc *p = curproc;
+"7	LINE	0
+		//struct trapframe *newtf = temp_tr;
+"8	LINE	0
+		//struct trapframe tf;
+"9	LINE	0
+		//k = p->pid;
+"-	CHAR	0
+	*
 
 # File marks:
-'0  1  0  ~/reconfig/1
-'1  1  0  ~/reconfig/make1
-'2  248  0  ~/os161/kern/thread/synch.c
-'3  157  0  ~/os161/kern/test/threadfun.c
-'4  58  0  ~/os161/kern/test/threadfun.c
-'5  108  0  ~/os161/kern/include/synch.h
-'6  1  0  ~/os161/kern/include/test.h
-'7  207  14  ~/os161/kern/test/threadfun.c
-'8  302  0  ~/os161/kern/test/threadfun.c
-'9  117  0  ~/os161/kern/test/threadfun.c
+'0  160  0  ~/os161/kern/syscall/proc_syscalls.c
+'1  1  0  kern/syscalls/syscall.c
+'2  1  0  ~/os161/kern/syscall/syscall.c
+'3  1  0  ~/.bash_history
+'4  157  0  ~/os161/kern/syscall/proc_syscalls.c
+'5  260  0  ~/os161/kern/proc/proc.c
+'6  110  47  ~/os161/kern/include/proc.h
+'7  91  0  ~/os161/kern/proc/proc.c
+'8  208  14  ~/os161/kern/proc/proc.c
+'9  86  1  ~/os161/kern/include/proc.h
 
 # Jumplist (newest first):
--'  1  0  ~/reconfig/1
--'  1  0  ~/reconfig/make1
--'  248  0  ~/os161/kern/thread/synch.c
--'  1  0  ~/os161/kern/thread/synch.c
--'  157  0  ~/os161/kern/test/threadfun.c
--'  1  0  ~/os161/kern/test/threadfun.c
--'  58  0  ~/os161/kern/test/threadfun.c
--'  108  0  ~/os161/kern/include/synch.h
--'  1  0  ~/os161/kern/include/synch.h
--'  1  0  ~/os161/kern/include/test.h
--'  207  14  ~/os161/kern/test/threadfun.c
--'  302  0  ~/os161/kern/test/threadfun.c
--'  117  0  ~/os161/kern/test/threadfun.c
--'  65  0  ~/os161/kern/include/test.h
--'  19  9  ~/os161/kern/test/threadfun.c
--'  52  17  ~/os161/kern/test/synchtest.c
--'  1  0  ~/os161/kern/test/synchtest.c
--'  2  0  ~/reconfig/make1
--'  254  0  ~/os161/kern/thread/synch.c
--'  183  8  ~/os161/kern/thread/synch.c
--'  455  0  ~/os161/kern/conf/conf.kern
--'  1  0  ~/os161/kern/conf/conf.kern
--'  1039  0  ~/os161/kern/conf/config
--'  1  0  ~/os161/kern/conf/config
--'  1  0  ~/os161/kern/conf/ASST1
--'  1  0  ~/os161/kern/ASST1
--'  1  0  ~/os161/kern/startup/main.c
--'  1  0  ~/os161/kern/test/cmdreader.c
--'  102  0  ~/os161/kern/include/test.h
--'  5  0  ~/os161/kern/test/cmdreader.c
--'  1  0  ~/os161/kern/startup/hello.c
--'  1  0  ~/os161/kern/startup/stpdprgrm.c
--'  652  2  ~/os161/kern/startup/menu.c
--'  636  11  ~/os161/kern/startup/menu.c
--'  635  44  ~/os161/kern/startup/menu.c
--'  538  7  ~/os161/kern/startup/menu.c
--'  1  0  ~/os161/kern/startup/menu.c
--'  107  1  ~/os161/kern/include/synch.h
--'  216  0  ~/os161/kern/thread/synch.c
--'  147  0  ~/os161/kern/include/synch.h
--'  97  0  ~/os161/kern/test/threadfun.c
--'  236  32  ~/os161/kern/test/threadfun.c
--'  133  0  ~/os161/root/sys161.conf
--'  134  0  ~/os161/root/sys161.conf
--'  23  36  ~/os161/root/sys161.conf
--'  22  52  ~/os161/root/sys161.conf
--'  1  0  ~/os161/root/sys161.conf
--'  217  0  ~/os161/kern/thread/synch.c
--'  136  5  ~/os161/kern/thread/synch.c
--'  124  6  ~/os161/kern/thread/synch.c
--'  103  0  ~/os161/kern/thread/synch.c
--'  88  0  ~/test/os161/kern/startup/menu.c
--'  140  1  ~/test/os161/kern/startup/menu.c
--'  1  0  ~/test/os161/kern/startup/menu.c
--'  235  0  ~/os161/kern/proc/proc.c
--'  214  1  ~/os161/kern/proc/proc.c
+-'  160  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  98  18  ~/os161/kern/syscall/proc_syscalls.c
+-'  104  23  ~/os161/kern/syscall/proc_syscalls.c
+-'  95  18  ~/os161/kern/syscall/proc_syscalls.c
+-'  147  15  ~/os161/kern/syscall/proc_syscalls.c
+-'  1  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  1  0  kern/syscalls/syscall.c
+-'  1  0  ~/os161/kern/syscall/syscall.c
+-'  1  0  ~/.bash_history
+-'  157  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  158  1  ~/os161/kern/syscall/proc_syscalls.c
+-'  119  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  260  0  ~/os161/kern/proc/proc.c
 -'  1  0  ~/os161/kern/proc/proc.c
--'  204  2  ~/os161/kern/test/threadfun.c
--'  466  37  ~/os161/kern/startup/menu.c
--'  1  0  startup/kern/menu.c
--'  51  27  ~/os161/kern/include/test.h
--'  67  0  ~/os161/kern/include/test.h
--'  172  0  ~/os161/kern/include/thread.h
+-'  110  47  ~/os161/kern/include/proc.h
+-'  1  0  ~/os161/kern/include/proc.h
+-'  91  0  ~/os161/kern/proc/proc.c
+-'  208  14  ~/os161/kern/proc/proc.c
+-'  86  1  ~/os161/kern/include/proc.h
+-'  155  9  ~/os161/kern/syscall/proc_syscalls.c
+-'  154  5  ~/os161/kern/syscall/proc_syscalls.c
+-'  2  15  ~/os161/kern/syscall/proc_syscalls.c
+-'  8  1  ~/os161
+-'  83  0  ~/os161/kern/include/thread.h
+-'  68  0  ~/os161/kern/include/thread.h
 -'  1  0  ~/os161/kern/include/thread.h
--'  454  0  ~/os161/kern/conf/conf.kern
--'  78  0  ~/os161/kern/startup/main.c
--'  147  0  ~/os161/kern/q
--'  1  0  ~/os161/kern/q
--'  177  16  ~/os161/kern/thread/synch.c
--'  207  28  ~/os161/kern/thread/synch.c
--'  78  23  ~/os161/kern/test/threadfun.c
--'  99  5  ~/os161/kern/test/synchtest.c
--'  309  15  ~/os161/kern/test/synchtest.c
--'  308  23  ~/os161/kern/test/synchtest.c
--'  278  19  ~/os161/kern/test/synchtest.c
--'  275  15  ~/os161/kern/test/synchtest.c
--'  223  15  ~/os161/kern/test/synchtest.c
--'  194  15  ~/os161/kern/test/synchtest.c
--'  180  14  ~/os161/kern/test/synchtest.c
--'  101  0  ~/os161/kern/test/synchtest.c
--'  233  0  ~/os161/kern/test/synchtest.c
--'  332  22  ~/os161/kern/thread/synch.c
--'  240  6  ~/os161/kern/thread/synch.c
--'  228  11  ~/os161/kern/thread/synch.c
--'  211  21  ~/os161/kern/thread/synch.c
--'  208  25  ~/os161/kern/thread/synch.c
--'  167  34  ~/os161/kern/thread/synch.c
--'  64  18  ~/os161/kern/thread/synch.c
--'  337  2  ~/os161/kern/thread/synch.c
--'  1  0  ~/os161/kern/include/synch.c
--'  41  17  ~/os161/kern/thread/synch.c
--'  239  14  ~/os161/kern/thread/synch.c
--'  134  3  ~/os161/kern/test/threadfun.c
--'  131  1  ~/os161/kern/test/threadfun.c
--'  42  0  ~/os161/kern/test/synchtest.c
--'  38  0  ~/os161/kern/test/synchtest.c
--'  10  2  ~/os161/kern/test/uw-tests.c
--'  1  0  ~/os161/kern/test/uw-tests.c
+-'  48  0  ~/os161/kern/arch/mips/include/thread.h
+-'  42  0  ~/os161/kern/arch/mips/include/thread.h
+-'  1  0  ~/os161/kern/arch/mips/include/thread.h
+-'  85  0  ~/os161/kern/arch/mips/include/current.h
+-'  79  0  ~/os161/kern/arch/mips/include/current.h
+-'  1  0  ~/os161/kern/arch/mips/include/current.h
+-'  485  0  ~/os161/kern/thread/thread.c
+-'  478  0  ~/os161/kern/thread/thread.c
+-'  1  0  ~/os161/kern/thread/thread.c
+-'  143  0  ~/os161/kern/include/thread.h
+-'  152  0  ~/os161/kern/startup/menu.c
+-'  198  8  ~/os161/kern/startup/menu.c
+-'  180  8  ~/os161/kern/startup/menu.c
+-'  129  0  ~/os161/kern/startup/menu.c
+-'  187  0  ~/os161/kern/startup/menu.c
+-'  169  0  ~/os161/kern/startup/menu.c
+-'  1  0  ~/os161/kern/startup/menu.c
+-'  721  0  ~/os161/kern/startup/menu.c
+-'  73  4  ~/os161/kern/syscall/proc_syscalls.c
+-'  10  0  ~/os161/user/uw-testbin/pidcheck/pidcheck.c
+-'  1  0  ~/os161/user/uw-testbin/pidcheck/pidcheck.c
+-'  45  0  /home/geosam05/os161/kern/syscall/proc_syscalls.c
+-'  1  0  /home/geosam05/os161/kern/syscall/proc_syscalls.c
+-'  1  0  /home/aliale14/os161/kern/syscall/proc_syscalls.c
+-'  66  21  ~/os161/kern/syscall/proc_syscalls.c
+-'  149  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  140  3  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  1  0  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  135  18  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  12  13  ~/os161/kern/syscall/proc_syscalls.c
+-'  71  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  68  5  ~/os161/kern/syscall/proc_syscalls.c
+-'  6  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  45  0  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  66  34  ~/os161/kern/include/syscall.h
+-'  1  0  ~/os161/kern/include/syscall.h
+-'  83  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  137  0  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  102  0  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  118  1  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  13  14  ~/os161/user/my-testbin/stubtest/stubtest.c
+-'  1  0  ~/os161/user/my-testbin/stubtest/stubtest.c
+-'  11  5  ~/os161/user/my-testbin/stubtest/stubtest.c
+-'  65  0  ~/os161/kern/include/syscall.h
+-'  127  3  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  108  0  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  4  0  ~/boot2
+-'  1  0  ~/boot2
+-'  14  33  ~/os161/user/my-testbin/stubtest/stubtest.c
+-'  6  54  ~/os161/user/my-testbin/Makefile
+-'  1  0  ~/os161/user/my-testbin/Makefile
+-'  5  12  ~/os161/user/my-testbin/stubtest/Makefile
+-'  1  0  ~/os161/user/my-testbin/stubtest/Makefile
+-'  56  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  45  0  /home/aliale14/os161/user/uw-testbin/lib/testutils.h
+-'  1  0  /home/aliale14/os161/user/uw-testbin/lib/testutils.h
+-'  1  0  /home/aliale14/os161/user/uw-testbin/onefork/onefork.c
+-'  8  0  /home/aliale14/os161/user/uw-testbin/onefork
+-'  1  0  /home/aliale14/os161/user/uw-testbin/syscall/syscall.c
+-'  120  6  ~/os161/user/include/unistd.h
+-'  138  0  ~/os161/user/include/unistd.h
+-'  1  0  ~/os161/user/include/unistd.h
+-'  1  0  kern/syscall.h
+-'  1  0  ~/os161/kern/syscall.h
+-'  88  10  ~/os161/kern/syscall/proc_syscalls.c
+-'  59  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  267  8  ~/kern/proc/proc.c
+-'  1  0  ~/kern/proc/proc.c
 
 # History of marks within files (newest to oldest):
 
-> ~/reconfig/1
-	"	1	0
-	^	10	0
-	.	9	6
-	+	13	12
-	+	7	15
-	+	9	6
+> ~/os161/kern/syscall/proc_syscalls.c
+	"	160	0
+	.	75	0
+	+	157	28
+	+	157	11
+	+	113	41
+	+	157	29
+	+	157	2
+	+	104	0
+	+	113	41
+	+	113	168
+	+	157	43
+	+	157	0
+	+	158	0
+	+	159	8
+	+	152	78
+	+	156	3
+	+	158	23
+	+	113	155
+	+	113	39
+	+	113	39
+	+	106	14
+	+	106	0
+	+	104	15
+	+	104	32
+	+	105	8
+	+	104	1
+	+	113	98
+	+	113	39
+	+	106	38
+	+	110	1
+	+	104	18
+	+	106	49
+	+	110	8
+	+	108	20
+	+	109	14
+	+	110	14
+	+	107	0
+	+	110	7
+	+	112	15
+	+	108	13
+	+	75	0
+	+	75	3
+	+	74	0
+	+	152	77
+	+	156	2
+	+	157	28
+	+	157	0
+	+	159	0
+	+	106	53
+	+	104	23
+	+	107	3
+	+	108	3
+	+	109	3
+	+	106	0
+	+	105	0
+	+	103	16
+	+	106	0
+	+	104	23
+	+	103	13
+	+	104	18
+	+	107	4
+	+	108	4
+	+	109	4
+	+	112	15
+	+	105	2
+	+	103	2
+	+	104	18
+	+	107	3
+	+	108	3
+	+	109	3
+	+	112	15
+	+	104	18
+	+	101	29
+	+	98	29
+	+	104	23
+	+	101	0
+	+	104	32
+	+	105	6
+	+	104	23
+	+	105	30
+	+	105	13
+	+	112	15
+	+	108	12
+	+	115	1
+	+	152	90
+	+	157	17
+	+	152	78
+	+	150	16
+	+	151	0
+	+	157	20
+	+	113	52
+	+	114	0
+	+	157	0
+	+	153	0
+	+	157	0
+	+	106	0
+	+	105	0
+	+	103	0
+	+	113	0
+	+	104	23
+	+	105	0
+	+	75	0
 
-> ~/reconfig/make1
+> ~/os161/kern/arch/mips/syscall/syscall.c
+	"	185	0
+	^	135	18
+	.	135	18
+	+	136	8
+	+	137	0
+	+	136	9
+	+	133	13
+	+	135	18
+
+> ~/os161/common/libc/string/bzero.c
+	"	39	0
+
+> ~/os161/kern/syscall/runprogram.c
+	"	51	0
+
+> ~/os161/user/uw-testbin/onefork/onefork.c
+	"	37	0
+
+> ~/os161/kern/arch/mips/vm/dumbvm.c
+	"	236	0
+
+> ~/os161/kern/arch/mips/locore/trap.c
 	"	1	0
-	^	6	14
-	.	6	13
+
+> /home/aliale14/os161/kern/syscall/proc_syscalls.c
+	"	185	0
+
+> ~/os161/kern/proc/proc.c
+	"	412	0
+	^	239	22
+	.	239	21
+	+	213	13
+	+	257	0
+	+	219	26
+	+	222	0
+	+	221	13
+	+	227	0
+	+	226	69
+	+	230	0
+	+	229	63
+	+	238	33
+	+	238	29
+	+	238	4
+	+	257	0
+	+	241	0
+	+	239	28
+	+	240	30
+	+	243	36
+	+	247	0
+	+	245	29
+	+	246	30
+	+	249	0
+	+	242	4
+	+	256	13
+	+	257	0
+	+	228	10
+	+	224	0
+	+	223	8
+	+	239	21
+
+> kern/syscalls/syscall.c
+	"	1	0
+
+> ~/os161/kern/syscall/syscall.c
+	"	1	0
+
+> ~/.bash_history
+	"	1	0
+	.	2	0
 	+	2	0
-	+	7	29
-	+	9	4
-	+	1	11
-	+	7	0
+	+	1	0
+	+	2	0
+
+> ~/os161/user/testbin/forktest/forktest.c
+	"	175	0
+
+> ~/os161/kern/include/proc.h
+	"	55	10
+	^	55	11
+	.	55	10
+	+	73	13
+	+	78	22
+	+	72	0
+	+	110	47
+	+	55	10
+
+> ~/os161/build/install/include/kern/fcntl.h
+	"	96	1
+
+> /home/bucpet08/os161/os161-1.99/kern/include/proc.h
+	"	60	0
+	^	36	10
+	.	47	9
+	+	47	9
+
+> /home/bucpet08/os161/os161-1.99/kern/proc/proc.c
+	"	69	0
+
+> /home/bucpet08/os161/os161-1.99/kern/startup/menu.c
+	"	157	0
+
+> ~/os161/kern/startup/menu.c
+	"	129	3
+	^	466	38
+	.	466	38
+	+	158	18
+	+	139	12
+	+	89	0
+	+	574	20
+	+	554	17
+	+	462	39
+	+	471	40
+	+	574	21
+	+	462	5
+	+	573	19
+	+	502	32
+	+	463	29
+	+	574	0
+	+	580	25
+	+	466	33
+	+	463	34
+	+	566	10
+	+	569	9
+	+	570	9
+	+	583	11
+	+	581	19
+	+	582	27
+	+	583	30
+	+	463	30
+	+	464	39
+	+	465	42
+	+	464	43
+	+	466	46
+	+	464	36
+	+	465	27
+	+	466	38
+	d	139	12
+
+> /home/bucpet08/os161/os161-1.99/kern/thread/thread.c
+	"	184	1
+
+> /home/bucpet08/os161/os161-1.99/kern/syscall/proc_syscalls.c
+	"	121	0
+
+> ~/os161/kern/test/uw-tests.c
+	"	294	0
+
+> ~/os161/kern/include/thread.h
+	"	143	0
+	^	75	54
+	.	76	0
+	+	75	66
+	+	108	2
+	+	76	0
+
+> ~/os161/common/libc/printf/snprintf.c
+	"	138	2
+
+> ~/os161/kern/test/malloctest.c
+	"	124	9
+
+> ~/os161/kern/thread/thread.c
+	"	534	1
+
+> ~/os161/kern/arch/mips/include/trapframe.h
+	"	40	0
+
+> ~/os161/kern/include/mainbus.h
+	"	39	0
+
+> ~/os161/kern/arch/mips/include/thread.h
+	"	48	0
+
+> ~/os161/kern/arch/mips/include/current.h
+	"	85	0
+
+> ~/os161/user/uw-testbin/pidcheck/pidcheck.c
+	"	10	0
+
+> /home/geosam05/os161/kern/syscall/proc_syscalls.c
+	"	45	0
+
+> ~/os161/kern/include/syscall.h
+	"	66	34
+	^	66	35
+	.	66	34
+	+	66	34
+
+> ~/os161/user/my-testbin/stubtest/stubtest.c
+	"	13	14
+	^	13	15
+	.	13	15
+	+	9	9
 	+	6	13
+	+	14	33
+	+	13	19
+	+	12	0
+	+	13	19
+	+	11	11
+	+	11	9
+	+	12	0
+	+	13	17
+	+	11	6
+	+	12	0
+	+	13	15
+
+> ~/boot2
+	"	4	0
+	^	4	19
+	.	4	18
+	+	4	18
+
+> ~/os161/user/my-testbin/Makefile
+	"	6	54
+	^	6	55
+	.	6	54
+	+	6	54
+
+> ~/os161/user/my-testbin/stubtest/Makefile
+	"	5	12
+	^	5	13
+	.	5	12
+	+	5	12
+
+> ~/os161/user/include/unistd.h
+	"	136	0
+	^	136	0
+	.	120	0
+	+	120	0
+
+> ~/os161/kern/include/kern/syscall.h
+	"	63	0
+
+> ~/os161/kern/syscall/file_syscalls.c
+	"	21	0
+
+> ~/os161/kern/file_syscalls.c
+	"	1	0
+
+> /home/aliale14/os161/user/uw-testbin/lib/testutils.h
+	"	45	0
+
+> /home/aliale14/os161/user/uw-testbin/onefork/onefork.c
+	"	1	0
+
+> /home/aliale14/os161/user/uw-testbin/syscall/syscall.c
+	"	1	0
+
+> /home/aliale14/os161/kern/include/syscall.h
+	"	1	0
+
+> ~/os161/kern/include/syscalls.h
+	"	1	0
+
+> ~/kern/syscall/proc_syscalls.c
+	"	54	0
+	^	57	11
+	.	57	10
+	+	66	9
+	+	65	14
+	+	66	14
+	+	65	3
+	+	53	3
+	+	58	0
+	+	57	10
+
+> kern/syscall.h
+	"	1	0
+
+> ~/os161/kern/syscall.h
+	"	1	0
+
+> ~/kern/proc/proc.c
+	"	267	8
+
+> ~/kern/include/kern/syscall.h
+	"	51	0
+
+> ~/kern/arch/mips/syscall/syscall.c
+	"	134	3
+	^	134	27
+	.	134	26
+	+	139	42
+	+	184	0
+	+	185	0
+	+	140	1
+	+	136	0
+	+	133	15
+	+	132	0
+	+	133	15
+	+	134	36
+	+	135	8
+	+	140	0
+	+	134	26
+
+> ~/os161/kern/lib/kprintf.c
+	"	44	20
+	^	44	21
+	.	44	20
+	+	43	1
+	+	44	20
+
+> ~/os161/user/my-testbin/fork/fork.c
+	"	6	20
+	^	6	21
+	.	5	16
+	+	5	16
+
+> ~/os161/user/my-testbin/fork/Makefile
+	"	5	8
+	^	5	9
+	.	5	8
+	+	5	8
+
+> ~/kern/include/syscall.h
+	"	66	27
+	^	66	28
+	.	66	27
+	+	66	27
+
+> ~/os161/kern/include/lib.h
+	"	145	28
+
+> ~/os161/kern/startup/main.c
+	"	122	17
+	^	111	9
+	.	111	8
+	+	2	14
+	+	3	1
+	+	73	30
+	+	111	8
+
+> ~/os161/kern/startup/manu.c
+	"	1	0
+
+> ~/test/os161/common/gcc-millicode/umoddi3.c
+	"	5	1
+
+> ~/kern/test/arraytest.c
+	"	97	1
+
+> /home/aliale14/os161/user/my-testbin/getpid/getpid.c
+	"	1	0
+
+> ~/os161/user/uw-testbin/syscall/syscall.c
+	"	1	0
+
+> ~/os161/user/my-testbin/getpid/getpid.c
+	"	6	25
+	^	6	26
+	.	6	25
+	+	2	18
+	+	5	0
+	+	6	25
+
+> ~/user/uw-testbin/pidcheck/pidcheck.c
+	"	50	1
+
+> ~/os161/root/include/kern/types.h
+	"	77	0
+
+> ~/kern/include/types.h
+	"	155	0
+
+> /home/aliale14/os161/user/my-testbin/timeOfDay/timeOfDay.c
+	"	1	0
+
+> ~/os161/user/my-testbin/getpid/Makefile
+	"	5	10
+	^	5	11
+	.	5	10
+	+	6	0
+	+	5	10
+
+> ~/os161/user/my-testbin/timeOfDay/timeOfDay.c
+	"	1	0
+	^	8	48
+	.	8	47
+	+	10	19
+	+	4	0
+	+	2	18
+	+	4	16
+	+	8	21
+	+	7	14
+	+	8	24
+	+	10	61
+	+	11	0
+	+	10	59
+	+	7	11
+	+	8	9
+	+	10	54
+	+	7	34
+	+	8	18
+	+	7	34
+	+	8	43
+	+	9	23
+	+	8	38
+	+	9	11
+	+	8	47
+
+> ~/os161/user/my-testbin/timeOfDay/Makefile
+	"	5	13
+	^	5	14
+	.	5	13
+	+	5	13
+
+> ~/os161/kern/include/synch.h
+	"	144	0
+	^	121	27
+	.	121	27
+	+	76	60
+	+	96	29
+	+	82	0
+	+	81	25
+	+	49	1
+	+	48	1
+	+	49	3
+	+	48	3
+	+	79	0
+	+	80	16
+	+	81	12
+	+	121	27
 
 > ~/os161/kern/thread/synch.c
-	"	248	0
+	"	302	0
 	^	188	22
 	.	189	0
 	+	165	59
@@ -371,6 +835,126 @@ $
 	+	188	53
 	+	188	40
 	+	189	0
+
+> ~/os161/kern/synch.c
+	"	1	0
+
+> ~/os161/user/my-testbin/writeConsole/writeConsole.c
+	"	4	24
+	^	4	25
+	.	4	24
+	+	6	0
+	+	5	9
+	+	4	24
+	+	4	35
+	+	1	35
+	+	4	44
+	+	4	19
+	+	1	18
+	+	4	24
+
+> ../../include/unistd.h
+	"	1	0
+
+> ~/os161/user/include/time.h
+	"	31	0
+
+> ~/os161/user/my-testbin/writeConsole/Makefile
+	"	5	16
+	^	5	17
+	.	5	16
+	+	5	16
+
+> ~/user/my-testbin/example/example.c
+	"	11	13
+	^	11	14
+	.	11	13
+	+	1	0
+	+	4	1
+	+	13	0
+	+	11	36
+	+	13	1
+	+	1	1
+	+	4	0
+	+	13	0
+	+	11	13
+
+> ~/user/my-testbin/writeConsole/writeConsole.c
+	"	1	0
+	^	6	10
+	.	6	9
+	+	1	18
+	+	7	0
+	+	5	25
+	+	1	9
+	+	6	9
+
+> ~/user/my-testbin/Makefile
+	"	6	16
+	^	6	17
+	.	6	16
+	+	6	16
+
+> /home/aliale14/os161/user/my-testbin/writeConsole/writeConsole.c
+	"	1	0
+
+> ~/user/my-testbin/writeConsole/Makefile
+	"	1	0
+	^	1	0
+	.	2	0
+	+	4	16
+	+	2	0
+
+> /home/aliale14/os161/user/my-testbin/Makefile
+	"	6	1
+
+> /home/aliale14/os161/user/my-testbin/writeConsole/Makefile
+	"	1	0
+
+> /home/aliale14/os161/user/my-testbin/writeConsole/WriteConsole.c
+	"	1	0
+
+> ~/user/my-testbin/example/Makefile
+	"	1	0
+
+> ~/user/my-testbin/README
+	"	43	0
+
+> ~/os161/user/my-testbin/example/example.c
+	"	1	0
+
+> ~/reconfig/2
+	"	11	9
+	^	11	10
+	.	7	28
+	+	6	13
+	+	7	28
+
+> ~/reconfig/make2
+	"	7	28
+	^	7	29
+	.	7	28
+	+	6	13
+	+	7	28
+
+> ~/reconfig/make1
+	"	6	12
+	^	6	14
+	.	6	13
+	+	2	0
+	+	7	29
+	+	9	4
+	+	1	11
+	+	7	0
+	+	6	13
+
+> ~/reconfig/1
+	"	1	0
+	^	10	0
+	.	9	6
+	+	13	12
+	+	7	15
+	+	9	6
 
 > ~/os161/kern/test/threadfun.c
 	"	157	0
@@ -477,23 +1061,6 @@ $
 	+	82	0
 	+	207	15
 
-> ~/os161/kern/include/synch.h
-	"	108	0
-	^	121	27
-	.	121	27
-	+	76	60
-	+	96	29
-	+	82	0
-	+	81	25
-	+	49	1
-	+	48	1
-	+	49	3
-	+	48	3
-	+	79	0
-	+	80	16
-	+	81	12
-	+	121	27
-
 > ~/os161/kern/include/test.h
 	"	1	0
 	^	68	33
@@ -517,9 +1084,6 @@ $
 	"	71	0
 	^	52	1
 
-> ~/os161/kern/thread/thread.c
-	"	252	0
-
 > ~/os161/kern/test/synchtest.c
 	"	52	17
 	^	74	16
@@ -529,43 +1093,6 @@ $
 	+	68	15
 	+	72	14
 	+	74	15
-
-> ~/os161/kern/startup/menu.c
-	"	587	4
-	^	466	38
-	.	466	38
-	+	158	18
-	+	139	12
-	+	89	0
-	+	574	20
-	+	554	17
-	+	462	39
-	+	471	40
-	+	574	21
-	+	462	5
-	+	573	19
-	+	502	32
-	+	463	29
-	+	574	0
-	+	580	25
-	+	466	33
-	+	463	34
-	+	566	10
-	+	569	9
-	+	570	9
-	+	583	11
-	+	581	19
-	+	582	27
-	+	583	30
-	+	463	30
-	+	464	39
-	+	465	42
-	+	464	43
-	+	466	46
-	+	464	36
-	+	465	27
-	+	466	38
-	d	139	12
 
 > ~/os161/kern/test/cmdreader.c
 	"	1	0
@@ -603,444 +1130,8 @@ $
 	+	4	18
 	+	1	11
 
-> ~/os161/kern/include/lib.h
-	"	91	0
-
 > ~/reconfig/build1
 	"	1	0
 	^	5	13
 	.	5	12
 	+	5	12
-
-> ~/os161/kern/conf/conf.kern
-	"	455	0
-	^	329	1
-	.	329	0
-	+	286	69
-	+	388	21
-	+	286	49
-	+	287	0
-	+	323	0
-	+	443	21
-	+	438	21
-	+	329	0
-
-> ~/os161/kern/conf/config
-	"	1039	0
-
-> ~/os161/kern/conf/ASST1
-	"	1	0
-
-> ~/os161/kern/ASST1
-	"	1	0
-
-> ~/os161/kern/startup/main.c
-	"	1	0
-	^	111	9
-	.	111	8
-	+	2	14
-	+	3	1
-	+	73	30
-	+	111	8
-
-> ~/os161/kern/startup/hello.c
-	"	1	0
-	^	6	26
-	.	6	25
-	+	7	0
-	+	6	25
-
-> ~/os161/kern/startup/stpdprgrm.c
-	"	1	0
-	^	41	1
-	.	40	2
-	+	41	0
-	+	1	0
-	+	7	2
-	+	14	2
-	+	21	2
-	+	28	2
-	+	36	2
-	+	38	2
-	+	40	2
-
-> ~/os161/root/sys161.conf
-	"	133	0
-	^	133	0
-	.	133	0
-	+	133	0
-	+	134	0
-	+	133	0
-	+	134	0
-	+	133	0
-	+	134	0
-	+	133	0
-	+	134	0
-	+	133	0
-	+	135	0
-	+	133	0
-
-> ~/os161/kern/thread/threadfun.c
-	"	1	0
-
-> ~/test/os161/kern/startup/menu.c
-	"	88	0
-
-> ~/os161/kern/proc/proc.c
-	"	235	0
-
-> ~/os161/kern/dev/lamebus/lamebus.c
-	"	236	36
-
-> ~/os161/kern/thread/spinlock.c
-	"	62	0
-
-> ~/test/os161/kern/lib/kprintf.c
-	"	86	2
-	m	108	21
-
-> ~/test/os161/kern/dev/lamebus/lamebus.c
-	"	93	25
-
-> ~/os161/kern/include/spinlock.h
-	"	88	0
-
-> ~/os161/kern/arch/mips/include/spinlock.h
-	"	60	7
-
-> ~/test/os161/kern/test/synchtest.c
-	"	59	0
-
-> startup/kern/menu.c
-	"	1	0
-
-> thread/synch.c
-	"	1	0
-
-> ~/os161/kern/include/thread.h
-	"	172	0
-
-> ~/os161/kern/q
-	"	147	0
-
-> ~/os161/kern/include/synch.c
-	"	1	0
-
-> ~/os161/kern/thread/threadlocks.c
-	"	469	0
-
-> ~/os161/kern/test/uw-tests.c
-	"	10	2
-	^	11	2
-	.	11	1
-	+	11	22
-	+	10	1
-	+	11	19
-	+	10	0
-	+	11	1
-
-> ~/os161/kern/test/uw-test.c
-	"	1	0
-
-> ~/os161/kern/test/uw-wtest.c
-	"	1	0
-
-> ~/os161/kern/threadlocks.c
-	"	1	0
-
-> ~/os161/kern/include/synchlock.h
-	"	129	0
-	^	78	26
-	.	78	25
-	+	78	25
-
-> ~/os161/kern/thread/synchlock.c
-	"	250	0
-	^	250	1
-	.	250	1
-	+	49	19
-	+	48	1
-	+	50	15
-	+	77	11
-	+	78	0
-	+	196	10
-	+	197	10
-	+	199	10
-	+	212	14
-	+	213	10
-	+	214	10
-	+	226	14
-	+	267	1
-	+	197	4
-	+	199	33
-	+	197	5
-	+	221	0
-	+	220	15
-	+	202	5
-	+	219	5
-	+	250	1
-
-> ~/os161/kern/synchlock.c
-	"	1	0
-
-> ~/os161/kern/arch/mips/locore/trap.c
-	"	299	1
-
-> ~/os161/kern/include/spl.h
-	"	22	0
-
-> ~/os161/kern/synchtest.c
-	"	1	0
-
-> ~/os161/kern/uw-tests.c
-	"	1	0
-
-> ~/os161/kern/thread/synchlocks.c
-	"	113	0
-	^	239	5
-	.	240	0
-	+	8	2
-	+	1	3
-	+	49	22
-	+	172	8
-	+	174	23
-	+	197	0
-	+	194	18
-	+	201	27
-	+	201	21
-	+	199	23
-	+	201	27
-	+	205	17
-	+	201	3
-	+	205	16
-	+	206	0
-	+	201	0
-	+	203	0
-	+	199	23
-	+	202	4
-	+	200	0
-	+	202	3
-	+	213	32
-	+	216	16
-	+	212	15
-	+	203	8
-	+	204	11
-	+	203	11
-	+	199	18
-	+	219	16
-	+	220	0
-	+	227	22
-	+	229	14
-	+	235	0
-	+	234	5
-	+	239	0
-	+	238	5
-	+	240	0
-
-> ~/os161/kern/synchlocks.c
-	"	1	0
-
-> ~/os161/kern/thread/spl.c
-	"	89	0
-
-> ~/conf.kern
-	"	1	0
-
-> ~/os161/kern/include/synchlocks.h
-	"	1	0
-
-> ~/os161/kern/include/wchan.h
-	"	1	1
-
-> ~/os161/common/libc/printf/__printf.c
-	"	46	15
-
-> ~/reconfig/configure1
-	"	1	0
-	^	6	14
-	.	6	13
-	+	4	55
-	+	7	0
-	+	6	13
-
-> ~/reconfig/compile1
-	"	1	0
-	^	6	13
-	.	6	12
-	+	6	12
-
-> ~/reconfig/installpmake
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> ~/os161/kern/thread/threadlist.c
-	"	1	0
-
-> ~/test/os161/kern/thread/threadlist.c
-	"	96	25
-
-> ~/os161/kern/conf.kern
-	"	1	0
-
-> ~/os161/kern/menu.c
-	"	1	0
-
-> ~/os161/kern/dev/generic/console.c
-	"	90	0
-
-> ~/os161/build/install/include/stdio.h
-	"	67	0
-
-> ~/test/os161/kern/dev/lamebus/emu.c
-	"	755	1
-
-> ~/test/os161/kern/arch/mips/include/vm.h
-	"	84	0
-
-> ~/os161/kern/dev/lamebus/emu.c
-	"	839	1
-
-> ~/os161/kern/arch/mips/include/vm.h
-	"	84	0
-
-> ~/os161/kern/tt3.c
-	"	1	0
-
-> ~/os161/kern/threadtest.c
-	"	1	0
-
-> ~/os161/kern/threadfun.c
-	"	1	0
-
-> ~/os161/kern/main.c
-	"	1	0
-
-> ~/os161/kern/include/cmdreader.h
-	"	1	3
-	^	1	4
-	.	1	3
-	+	1	3
-
-> ~/os161/kern/include/array.h
-	"	60	0
-
-> ~/os161/kern/synchprobs/whalemating.c
-	"	58	0
-
-> ~/os161/kern/lib/kprintf.c
-	"	113	0
-
-> ~/os161/kern/test/arraytest.c
-	"	74	0
-
-> ~/os161/kern/lib/stpdprog.c
-	"	1	0
-	^	1	11
-	.	29	8
-	+	6	0
-	+	5	25
-	+	11	0
-	+	10	9
-	+	16	0
-	+	15	9
-	+	21	0
-	+	20	29
-	+	30	0
-	+	29	8
-
-> ~/test/os161/kern/test/threadtest.c
-	"	1	0
-
-> ~/test/os161/kern/thread/synch.c
-	"	79	0
-
-> ~/os161/build/install/include/kern/endian.h
-	"	50	2
-
-> ~/os161/kern/test/malloctest.c
-	"	123	2
-
-> ~/os161/kern/test/fstest.c
-	"	444	2
-
-> ~/os161/kern/synchprobs/catmouse.c
-	"	661	4
-
-> ~/test/os161/kern/test/tt3.c
-	"	149	2
-
-> ~/test/os161/kern/synchprobs/catmouse.c
-	"	668	0
-
-> ~/os161/kern/hello.o
-	"	1	0
-
-> ~/os161/kern/test.h
-	"	1	0
-
-> ~/os161/root/include/kern/errmsg.h
-	"	11	1
-
-> ~/os161/kern/compile/ASST0/main.o
-	"	1	0
-
-> ~/os161/.gitignore
-	"	1	0
-	^	10	7
-	.	10	6
-	+	1	8
-	+	3	0
-	+	2	0
-	+	10	6
-
-> /tmp/tutord3BIOq
-	"	255	0
-	^	255	0
-	.	254	55
-	+	203	0
-	+	222	0
-	+	254	55
-
-> /tmp/tutorz1DUHJ
-	"	222	47
-
-> ~/tutor
-	"	4	0
-	^	2	0
-	.	1	0
-	+	1	31
-	+	4	6
-	+	1	0
-
-> /tmp/tutorLTin0q
-	"	161	0
-
-> /tmp/tutorZOzstO
-	"	159	0
-
-> /tmp/tutoroDlLjS
-	"	170	25
-	^	116	48
-	.	116	45
-	+	85	9
-	+	92	0
-	+	85	32
-	+	88	0
-	+	91	0
-	+	88	0
-	+	89	0
-	+	90	0
-	+	85	28
-	+	87	0
-	+	85	30
-	+	86	0
-	+	85	30
-	+	116	45
-
-> /tmp/tutorLjhgAh
-	"	76	49
-
-> /tmp/tutor0LbrNk
-	"	58	0

@@ -73,7 +73,6 @@ struct thread {
 	char *t_name;			/* Name of this thread */
 	const char *t_wchan_name;	/* Name of wait channel, if sleeping */
 	threadstate_t t_state;		/* State this thread is in */
-
 	/*
 	 * Thread subsystem internal fields.
 	 */
@@ -105,7 +104,8 @@ struct thread {
 	 * Public fields
 	 */
 
-	/* add more here as needed */
+	/* VM */
+	//struct addrspace *t_addrspace;
 };
 
 /*

@@ -49,6 +49,13 @@ void sys__exit(int exitcode) {
 }
 
 
+/* My stub for fork */
+int
+sys_fork(pid_t *retval)
+{
+	*retval = 1;
+	return(0);
+}
 /* stub handler for getpid() system call                */
 int
 sys_getpid(pid_t *retval)
