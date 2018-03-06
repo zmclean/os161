@@ -102,10 +102,9 @@ uproc_thread (void *temp_tr, unsigned long k)
 {
 	as_activate();
 	struct trapframe tf = *((struct trapframe*)temp_tr);
-	(void)k;
-
+	
 	tf.tf_epc += 4;
-	tf.tf_v0 = 0;
+	tf.tf_v0 = k;
 	tf.tf_a3 = 0;
 	kfree(temp_tr);
 
@@ -149,7 +148,7 @@ sys_fork(struct trapframe *tf, pid_t *retval)
 
 	*temp_tf = *tf;
 
-	err = thread_fork(curthread->t_name, proc, uproc_thread, temp_tf, *retval);
+	err = thread_fork(curthread->t_name, proc, uproc_thread, temp_tf, *retval + 1);
 
 	if (err) {
 		return err;

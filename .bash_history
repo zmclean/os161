@@ -146,3 +146,49 @@ cd
 ./boot2
 ./reconfig/2
 ./boot2
+./reconfig/2
+./boot2
+./reconfig/make2
+./reconfig/2
+./boot2
+ls
+gcc onefork.c
+./a.out
+./reconfig/make2
+./reconfig/2
+./boot2
+ls
+gcc pidcheck.c
+./a.out
+git add.
+git add .
+git commit -m "os161-finished"
+git push origin master
+exit
+cd os161
+cd kern/syscall/syscall.c
+vim kern/syscall/syscall.c
+vim/kern/syscalls/syscall.c
+vim kern/syscalls/syscall.c
+ls
+ls kern
+ls kern/syscall
+vim kern/syscall/proc_syscalls.c 
+exit
+ssh mclzac19@ada.evergreen.edu
+ls
+cscope -kR
+exit
+cd os161
+cscope -kR
+man kfree
+cscope -kR
+exit
+ls
+./a.out
+./onefork.c
+gcc onefork.c
+./a.out
+gcc pidcheck.c
+./a.out
+exit

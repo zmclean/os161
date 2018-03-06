@@ -14,12 +14,12 @@
 $
 
 # Command Line History (newest to oldest):
-:wq
-:w
 :q
-:W
 :q!
 :Q
+:wq
+:w
+:W
 :ew
 :x!q
 :1q
@@ -87,62 +87,135 @@ $
 	
 		return(0);
 	}
-""1	LINE	0
-	     this is just a stub implementation that always reports an
+"1	CHAR	0
+	pmake all
+	pmake install
+	vim timeOfDay/timeOfDay.c 
+	pmake all
+	pmake install
+	vim timeOfDay/timeOfDay.c 
+	pmake all
+	pmake install
+	vim timeOfDay/timeOfDay.c 
+	:q
+	pmake all
+	pmake install
+	vim timeOfDay/timeOfDay.c 
+	pmake all
+	pmake install
+	vim timeOfDay/timeOfDay.c 
+	pmake all
+	pmake install
+	vim timeOfDay/timeOfDay.c 
+	pmake all
+	pmake install
+	vim timeOfDay/timeOfDay.c 
+	time
+	time(1)
+	time
+	time(5)
+	date
+	time(5 + 5; )
+	ls getpid
+	rm getpid/getpid.c
+	rm getpid
+	rmd getpid
+	rm-r getpid
+	rm -r getpid
+	ls
+	mkdir getpid; cp writeConsole/writeConsole.c getpid/getpid.c; cp writeConsole/Makefile getpid/Makefile; 
+	;s
+	ls
+	ls getpid
+	vim getpid/Makefile
+	vim Makefile
+	ls
+	vim getpid/getpid.c
+	mv getpid getpid1
+	ls
+	ls getpid1
+	mv getpid1 getpid
+	ls
+	pmake *
+	pmake all
 "2	LINE	0
-		kfree(dummy);
+	vim timeOfDay/timeOfDay.c 
 "3	LINE	0
-		struct trapframe tf = *dummy;
+	pmake install
 "4	LINE	0
-		//enter_forked_process(&tf);
+	pmake all
 "5	LINE	0
-		//struct address *as;
+	vim timeOfDay/timeOfDay.c 
 "6	LINE	0
-		//struct proc *p = curproc;
+	pmake install
 "7	LINE	0
-		//struct trapframe *newtf = temp_tr;
+	pmake all
 "8	LINE	0
-		//struct trapframe tf;
+	vim timeOfDay/timeOfDay.c 
 "9	LINE	0
-		//k = p->pid;
-"-	CHAR	0
-	*
+	pmake install
+""-	CHAR	0
+	 
 
 # File marks:
-'0  160  0  ~/os161/kern/syscall/proc_syscalls.c
-'1  1  0  kern/syscalls/syscall.c
-'2  1  0  ~/os161/kern/syscall/syscall.c
-'3  1  0  ~/.bash_history
-'4  157  0  ~/os161/kern/syscall/proc_syscalls.c
-'5  260  0  ~/os161/kern/proc/proc.c
-'6  110  47  ~/os161/kern/include/proc.h
-'7  91  0  ~/os161/kern/proc/proc.c
-'8  208  14  ~/os161/kern/proc/proc.c
-'9  86  1  ~/os161/kern/include/proc.h
+'0  142  1  ~/os161/kern/arch/mips/syscall/syscall.c
+'1  312  2  ~/os161/kern/arch/mips/locore/trap.c
+'2  324  2  ~/os161/kern/arch/mips/locore/trap.c
+'3  51  0  ~/pidcheck.c
+'4  431  0  ~/os161/kern/arch/mips/locore/trap.c
+'5  51  0  ~/os161/kern/syscall/runprogram.c
+'6  412  0  ~/os161/kern/proc/proc.c
+'7  297  0  ~/os161/kern/arch/mips/locore/trap.c
+'8  418  0  ~/os161/kern/arch/mips/locore/trap.c
+'9  1  0  ~/os161/kern/arch/mips/syscall/syscall.c
 
 # Jumplist (newest first):
--'  160  0  ~/os161/kern/syscall/proc_syscalls.c
--'  98  18  ~/os161/kern/syscall/proc_syscalls.c
--'  104  23  ~/os161/kern/syscall/proc_syscalls.c
--'  95  18  ~/os161/kern/syscall/proc_syscalls.c
--'  147  15  ~/os161/kern/syscall/proc_syscalls.c
--'  1  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  142  1  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  165  1  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  1  0  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  312  2  ~/os161/kern/arch/mips/locore/trap.c
+-'  1  0  ~/os161/kern/arch/mips/locore/trap.c
+-'  324  2  ~/os161/kern/arch/mips/locore/trap.c
+-'  301  2  ~/os161/kern/arch/mips/locore/trap.c
+-'  51  0  ~/pidcheck.c
+-'  1  0  ~/pidcheck.c
+-'  431  0  ~/os161/kern/arch/mips/locore/trap.c
+-'  430  1  ~/os161/kern/arch/mips/locore/trap.c
+-'  51  0  ~/os161/kern/syscall/runprogram.c
+-'  55  0  ~/os161/kern/syscall/runprogram.c
+-'  1  0  ~/os161/kern/syscall/runprogram.c
+-'  412  0  ~/os161/kern/proc/proc.c
+-'  266  0  ~/os161/kern/proc/proc.c
+-'  1  0  ~/os161/kern/proc/proc.c
+-'  297  0  ~/os161/kern/arch/mips/locore/trap.c
+-'  367  0  ~/os161/kern/arch/mips/locore/trap.c
+-'  418  0  ~/os161/kern/arch/mips/locore/trap.c
+-'  127  0  ~/os161/kern/arch/mips/syscall/syscall.c
+-'  422  1  ~/os161/kern/arch/mips/locore/trap.c
+-'  101  1  ~/os161/kern/syscall/runprogram.c
+-'  379  0  ~/os161/kern/arch/mips/locore/trap.c
+-'  37  0  ~/os161/user/uw-testbin/onefork/onefork.c
+-'  2  1  ~/os161/user/uw-testbin/onefork/onefork.c
+-'  1  0  ~/os161/user/uw-testbin/onefork/onefork.c
 -'  1  0  kern/syscalls/syscall.c
 -'  1  0  ~/os161/kern/syscall/syscall.c
 -'  1  0  ~/.bash_history
--'  157  0  ~/os161/kern/syscall/proc_syscalls.c
--'  158  1  ~/os161/kern/syscall/proc_syscalls.c
--'  119  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  178  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  1  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  175  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  176  1  ~/os161/kern/syscall/proc_syscalls.c
+-'  135  0  ~/os161/kern/syscall/proc_syscalls.c
 -'  260  0  ~/os161/kern/proc/proc.c
--'  1  0  ~/os161/kern/proc/proc.c
 -'  110  47  ~/os161/kern/include/proc.h
 -'  1  0  ~/os161/kern/include/proc.h
 -'  91  0  ~/os161/kern/proc/proc.c
 -'  208  14  ~/os161/kern/proc/proc.c
 -'  86  1  ~/os161/kern/include/proc.h
--'  155  9  ~/os161/kern/syscall/proc_syscalls.c
--'  154  5  ~/os161/kern/syscall/proc_syscalls.c
+-'  102  28  ~/os161/kern/syscall/proc_syscalls.c
+-'  170  9  ~/os161/kern/syscall/proc_syscalls.c
+-'  169  5  ~/os161/kern/syscall/proc_syscalls.c
 -'  2  15  ~/os161/kern/syscall/proc_syscalls.c
+-'  173  134  ~/os161/kern/syscall/proc_syscalls.c
 -'  8  1  ~/os161
 -'  83  0  ~/os161/kern/include/thread.h
 -'  68  0  ~/os161/kern/include/thread.h
@@ -165,16 +238,16 @@ $
 -'  169  0  ~/os161/kern/startup/menu.c
 -'  1  0  ~/os161/kern/startup/menu.c
 -'  721  0  ~/os161/kern/startup/menu.c
--'  73  4  ~/os161/kern/syscall/proc_syscalls.c
+-'  74  2  ~/os161/kern/syscall/proc_syscalls.c
 -'  10  0  ~/os161/user/uw-testbin/pidcheck/pidcheck.c
 -'  1  0  ~/os161/user/uw-testbin/pidcheck/pidcheck.c
 -'  45  0  /home/geosam05/os161/kern/syscall/proc_syscalls.c
 -'  1  0  /home/geosam05/os161/kern/syscall/proc_syscalls.c
 -'  1  0  /home/aliale14/os161/kern/syscall/proc_syscalls.c
 -'  66  21  ~/os161/kern/syscall/proc_syscalls.c
--'  149  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  77  11  ~/os161/kern/syscall/proc_syscalls.c
+-'  165  0  ~/os161/kern/syscall/proc_syscalls.c
 -'  140  3  ~/os161/kern/arch/mips/syscall/syscall.c
--'  1  0  ~/os161/kern/arch/mips/syscall/syscall.c
 -'  135  18  ~/os161/kern/arch/mips/syscall/syscall.c
 -'  12  13  ~/os161/kern/syscall/proc_syscalls.c
 -'  71  0  ~/os161/kern/syscall/proc_syscalls.c
@@ -183,7 +256,7 @@ $
 -'  45  0  ~/os161/kern/arch/mips/syscall/syscall.c
 -'  66  34  ~/os161/kern/include/syscall.h
 -'  1  0  ~/os161/kern/include/syscall.h
--'  83  0  ~/os161/kern/syscall/proc_syscalls.c
+-'  90  0  ~/os161/kern/syscall/proc_syscalls.c
 -'  137  0  ~/os161/kern/arch/mips/syscall/syscall.c
 -'  102  0  ~/os161/kern/arch/mips/syscall/syscall.c
 -'  118  1  ~/os161/kern/arch/mips/syscall/syscall.c
@@ -191,32 +264,32 @@ $
 -'  1  0  ~/os161/user/my-testbin/stubtest/stubtest.c
 -'  11  5  ~/os161/user/my-testbin/stubtest/stubtest.c
 -'  65  0  ~/os161/kern/include/syscall.h
--'  127  3  ~/os161/kern/arch/mips/syscall/syscall.c
 -'  108  0  ~/os161/kern/arch/mips/syscall/syscall.c
 -'  4  0  ~/boot2
 -'  1  0  ~/boot2
 -'  14  33  ~/os161/user/my-testbin/stubtest/stubtest.c
 -'  6  54  ~/os161/user/my-testbin/Makefile
--'  1  0  ~/os161/user/my-testbin/Makefile
--'  5  12  ~/os161/user/my-testbin/stubtest/Makefile
--'  1  0  ~/os161/user/my-testbin/stubtest/Makefile
--'  56  0  ~/os161/kern/syscall/proc_syscalls.c
--'  45  0  /home/aliale14/os161/user/uw-testbin/lib/testutils.h
--'  1  0  /home/aliale14/os161/user/uw-testbin/lib/testutils.h
--'  1  0  /home/aliale14/os161/user/uw-testbin/onefork/onefork.c
--'  8  0  /home/aliale14/os161/user/uw-testbin/onefork
--'  1  0  /home/aliale14/os161/user/uw-testbin/syscall/syscall.c
--'  120  6  ~/os161/user/include/unistd.h
--'  138  0  ~/os161/user/include/unistd.h
--'  1  0  ~/os161/user/include/unistd.h
--'  1  0  kern/syscall.h
--'  1  0  ~/os161/kern/syscall.h
--'  88  10  ~/os161/kern/syscall/proc_syscalls.c
--'  59  0  ~/os161/kern/syscall/proc_syscalls.c
--'  267  8  ~/kern/proc/proc.c
--'  1  0  ~/kern/proc/proc.c
 
 # History of marks within files (newest to oldest):
+
+> ~/os161/kern/arch/mips/syscall/syscall.c
+	"	142	1
+	^	135	18
+	.	135	18
+	+	136	8
+	+	137	0
+	+	136	9
+	+	133	13
+	+	135	18
+
+> ~/os161/kern/arch/mips/locore/trap.c
+	"	312	2
+
+> ~/pidcheck.c
+	"	51	0
+	^	45	0
+	.	45	0
+	+	45	0
 
 > ~/os161/kern/syscall/proc_syscalls.c
 	"	160	0
@@ -322,16 +395,6 @@ $
 	+	105	0
 	+	75	0
 
-> ~/os161/kern/arch/mips/syscall/syscall.c
-	"	185	0
-	^	135	18
-	.	135	18
-	+	136	8
-	+	137	0
-	+	136	9
-	+	133	13
-	+	135	18
-
 > ~/os161/common/libc/string/bzero.c
 	"	39	0
 
@@ -343,9 +406,6 @@ $
 
 > ~/os161/kern/arch/mips/vm/dumbvm.c
 	"	236	0
-
-> ~/os161/kern/arch/mips/locore/trap.c
-	"	1	0
 
 > /home/aliale14/os161/kern/syscall/proc_syscalls.c
 	"	185	0
@@ -1129,9 +1189,3 @@ $
 	.	1	11
 	+	4	18
 	+	1	11
-
-> ~/reconfig/build1
-	"	1	0
-	^	5	13
-	.	5	12
-	+	5	12
