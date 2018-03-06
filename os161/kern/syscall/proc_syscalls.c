@@ -55,9 +55,8 @@ void sys__exit(int exitcode) {
 int
 sys_getpid(pid_t *retval)
 {
-	//*retval = curthread->t_pid;
-	*retval = 1;
-  return(0);
+	*retval = curproc->pid;
+   return(0);
 }
 
 /* stub handler for waitpid() system call                */
@@ -101,8 +100,8 @@ void
 uproc_thread (void *temp_tr, unsigned long k) 
 {
 	as_activate();
-	struct trapframe tf = *((struct trapframe*)temp_tr);
-	
+	struct trapframe tf = *((struct trapframe*)temp_tr);	
+
 	tf.tf_epc += 4;
 	tf.tf_v0 = k;
 	tf.tf_a3 = 0;
@@ -140,20 +139,20 @@ sys_fork(struct trapframe *tf, pid_t *retval)
 	DEBUG(DB_SYSCALL, "Syscall: sys_fork()\n");
 
 	proc->p_addrspace = child_vmspace;
-
+	proc->pid = 2;
 	temp_tf = kmalloc(sizeof(struct trapframe));
 	if(temp_tf == NULL) {
 		return ENOMEM;
 	}
 
 	*temp_tf = *tf;
-
-	err = thread_fork(curthread->t_name, proc, uproc_thread, temp_tf, *retval + 1);
+	err = thread_fork(curthread->t_name, proc, uproc_thread, temp_tf, *retval);
 
 	if (err) {
 		return err;
 	}
-
+	
+	proc->pid +=1;
 	*retval = proc->pid;
 	return(0);
 }

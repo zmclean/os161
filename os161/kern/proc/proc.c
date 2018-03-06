@@ -220,6 +220,7 @@ proc_create_fork(const char *name)
 	if (proc == NULL) {
 		return NULL;
 	}
+	proc->pid = 2;
 #ifdef UW
 	console_path = kstrdup("con:");
 	if(console_path == NULL) {
@@ -272,7 +273,8 @@ proc_create_runprogram(const char *name)
 	if (proc == NULL) {
 		return NULL;
 	}
-
+	
+	proc->pid = 2;
 #ifdef UW
 	/* open the console - this should always succeed */
 	console_path = kstrdup("con:");

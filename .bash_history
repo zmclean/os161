@@ -192,3 +192,101 @@ gcc onefork.c
 gcc pidcheck.c
 ./a.out
 exit
+ls
+cd os161
+cscope -kR 
+cd
+./reconfig/make2
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+git add .
+git commit -m
+git commit -m "v1"
+git push origin master
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+./reconfig/2
+./boot2
+./reconfig/make2
+./reconfig/2
+./boot2
+ls
+vim pidcheck.c
+cd os161/
+ls
+cd user
+ls
+cd my-testbin
+ls
+ls getpid
+vim getpid/getpid.c
+ls
+ls getpid
+cd
+./boot2
+cd os161
+cscope -kR
+./boot2
+cd
+./boot2
+ls
+gcc onefork.c
+./a.out
+gcc pidcheck.c
+./a.out
+./boot2
+exit
+cd os161
+cscope -kR
+cd
+./reconfig/2
+cscope -kR
+./reconfig/2
+cd os161
+cscope -kR
+./reconfig/2
+cd
+./reconfig/2
+./reconfig/make2
+cd os161
+cscope -kR
+cd
+./reconfig/make2
+./reconfig/2
+cd os161
+cscope -kR
+cd
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+./reconfig/make2
+./reconfig/2
+exit
